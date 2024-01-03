@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial';
+  background-color:  #FFA500;;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.inner-container {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    padding-right: 10px;
+}
+
+.left-container img {
+    width: 600px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right-container {
+  flex: 1;
+  padding: 20px;
+  padding-top: 90px;
+}
+
+.logo-container {
+  position: absolute;
+  top: 150px;;
+  right: 500px;
+  }
+  
+  .logo-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+label {
+  margin-top: 15px;
+  color: #333;
+}
+
+input{
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #FFA500;
+  border-radius: 5px;
+}
+button {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.radio-group {
+  display: flex;
+  margin-top: 5px;
+}
+
+.radio-group input {
+  margin-right: 5px;
+}
+
+button {
+  background-color: #000000;
+  color: #fff4f4;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffa200;
+}
+
+p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #333;
+}

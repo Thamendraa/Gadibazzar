@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+	<link rel="stylesheet" type="text/css" href="/CSS/styles.css">
+</head>
+<body>
+  <div id="container">
+	  <div class="logo-container">
+		  <img src="/images/bgGadiBazzar.png" width="500px">
+		  </div>
+	  <div class="inner-container">
+		  <div class="left-container">
+			  <img src="/images/singup.png" width="600px" height="600px">
+			</div>
+			<div class="right-container">
+				<form action="/userRegistration" method="Post" >
+			<h1>Register</h1>
+			<label>Full Name:</label>
+			<input type="text" name="name" id="name" placeholder="Full Name"  >
+			
+			<label>E-mail:</label>
+			<input type="email" name="email" id="email"placeholder="email" >
+			
+			<label>Password:</label>
+			<input type="password" name="password" id="password" placeholder="********">
+			
+			<label>Gender:</label>
+			<div class="radio-group">
+				<input type="radio" name="gender" id="male" value="male">
+				<label for="male">Male</label>
+				
+				<input type="radio" name="gender" id="female" value="female">
+				<label for="female">Female</label>
+				
+				<input type="radio" name="gender" id="other" value="other">
+				<label for="other">Other</label>
+			</div>
+			
+			<label>
+				<input type="checkbox" name="agree" id="agree">I agree to the Terms & Conditions
+			</label>
+			
+			<button type="submit">Sign-up</button>
+			<p>Already have an Account? <a href="/login" style="color: #000000;">Login</a></p>
+		</form>		
+                    </div>
+                </div>
+            </div>
+        
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    body, html {
+      height: 100%;
+    }
+
+    .w3-display-middle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="w3-display-middle w3-card w3-half w3-margin-top">
+    <h3 class="w3-center">Your OTP has been send to yout email address, find yout OTP there.</h3>
+    <form class="w3-container" action="/otpCheck" method="post">
+      <div class="w3-section">
+        <input class="w3-input w3-border w3-round-large" type="text" id="otp" name="otp" placeholder="Enter OTP">
+      </div>
+      <div class="form-group">
+        <input class="w3-input w3-border w3-round-large" type="password" id="newPassword" name="newPassword" placeholder="New Password" required>
+      </div>
+      <div class="w3-section w3-center">
+        <button class="w3-button w3-teal w3-round-large" type="submit">Confirm</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
