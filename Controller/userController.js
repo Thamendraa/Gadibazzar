@@ -131,6 +131,6 @@ exports.otpVerify = async (req, res) => {
   return res.redirect("/login");
 };
 
-exports.landing = async (req, res) => {
-  res.render("home");
-};
+// exports.landing = async (req, res) => {
+//   res.render("home");
+// };
