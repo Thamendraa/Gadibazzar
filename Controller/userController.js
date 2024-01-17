@@ -17,13 +17,15 @@ exports.registerUser = async (req, res) => {
   const { 
     name, 
     email, 
+    gender,
     password
-   } = req.body;
-   console.log(req.body.password)
+  } = req.body;
+  console.log(req.body.password)
   //create user
   const created = await USER.create({
     name: name,
     email,
+    gender,
     password: bcrypt.hashSync(password, 10),
   });
 

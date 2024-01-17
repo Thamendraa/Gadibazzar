@@ -4,52 +4,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration Form</title>
-	<link rel="stylesheet" type="text/css" href="/CSS/styles.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Template</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/login.css">
 </head>
 <body>
-  <div id="container">
-	  <div class="logo-container">
-		  <img src="/images/bgGadiBazzar.png" width="500px">
-		  </div>
-	  <div class="inner-container">
-		  <div class="left-container">
-			  <img src="/images/singup.png" width="600px" height="600px">
-			</div>
-			<div class="right-container">
-				<form action="/userRegistration" method="Post" >
-			<h1>Register</h1>
-			<label>Full Name:</label>
-			<input type="text" name="name" id="name" placeholder="Full Name"  >
-			
-			<label>E-mail:</label>
-			<input type="email" name="email" id="email"placeholder="email" >
-			
-			<label>Password:</label>
-			<input type="password" name="password" id="password" placeholder="********">
-			
-			<label>Gender:</label>
-			<div class="radio-group">
-				<input type="radio" name="gender" id="male" value="male">
-				<label for="male">Male</label>
-				
-				<input type="radio" name="gender" id="female" value="female">
-				<label for="female">Female</label>
-				
-				<input type="radio" name="gender" id="other" value="other">
-				<label for="other">Other</label>
-			</div>
-			
-			<label>
-				<input type="checkbox" name="agree" id="agree">I agree to the Terms & Conditions
-			</label>
-			
-			<button type="submit">Sign-up</button>
-			<p>Already have an Account? <a href="/login" style="color: #000000;">Login</a></p>
-		</form>		
-                    </div>
-                </div>
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="images/singup.png" alt="login" class="login-card-img" width="100%" >
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+                <img src="images/bgGadiBazzar.png" alt="logo" class="logo" width="200px" height="400px">
+              </div>
+              <p class="login-card-description">Sign into your account</p>
+              <form action="/userRegistration" method="Post">
+                  <div class="form-group">
+                    <label for="fullName" class="sr-only">Full Name</label>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Full Name">
+                  </div>
+                  <div class="form-group mb-4">
+					<label for="email" class="sr-only">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                  </div>
+				  <div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="male" value="male">
+					<label class="form-check-label" for="inlineRadio1">Male</label>
+				  </div>
+				  <div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="female" value="female">
+					<label class="form-check-label" for="inlineRadio2">Female</label>
+				  </div>
+				  <div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="other" value="other" >
+					<label class="form-check-label" for="inlineRadio3">Other</label>
+				  </div>
+				  <div class="form-group mb-4 mt-4">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                  </div>
+				  <div class="form-check">
+					<input class="form-check-input" type="checkbox" value="agree" id="agree" required>
+					<label class="form-check-label" for="defaultCheck1">
+					 Agree all the Terms & Conditions
+					</label>
+				  </div>
+				  <button type="submit" class="btn btn-block login-btn mb-4 mt-4">Sign-up</button>
+                </form>
+                <p class="login-card-footer-text">Already have an account? <a href="/login" class="text-reset">Login</a></p>
+                <nav class="login-card-footer-nav">
+                  <a href="#!">Terms of use.</a>
+                  <a href="#!">Privacy policy</a>
+                </nav>
             </div>
-        
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
+
+
