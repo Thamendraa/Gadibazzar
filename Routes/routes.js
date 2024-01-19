@@ -1,7 +1,7 @@
 const express = require('express');
-const uc = require("./Controller/userController");
-const hc = require("./Controller/mainController")
-const db = require("./Model/index");
+const uc = require("../Controller/userController");
+const hc = require("../Controller/mainController")
+
 
 // Creating an Express Router
 const router = express.Router();
