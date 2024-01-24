@@ -7,14 +7,14 @@ const path = require("path");
 // const isAuthenticated = require("./Middleware/isAuthenticated");
 const dotenv = require("dotenv");
 app.set("view engine","ejs");
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/pages'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: false }));
 
-//Datbabase link
-db.sequelize.sync({ force: true }); 
+//DataBase link
+db.sequelize.sync({ force: false }); 
 
 dotenv.config();
 // app.use(require("cookie-parser")());

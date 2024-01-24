@@ -10,16 +10,15 @@ const router = express.Router();
 router.get('/', hc.landing);
 
 // User registration page route (GET)
-router.get("/userRegistration", uc.renderRegistration);
+router.get("/singUpUser", uc.renderRegistration);
 
-// Login page route (GET)
-router.get("/login", uc.renderLogin);
+router.route("/login").get(uc.renderLogin).post(uc.userLogin);//RESTfull API
 
 // User registration form submission route (POST)
 router.post("/userRegistration", uc.registerUser);
 
 // Login form submission route (POST)
-router.post("/login", uc.userLogin);
+// router.post("/login", uc.userLogin);
 
 // Check email page route (GET)
 router.get("/checkEmail", uc.renderEmail);

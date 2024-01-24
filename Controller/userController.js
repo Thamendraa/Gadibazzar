@@ -6,12 +6,25 @@ const bcrypt = require("bcryptjs");
 const sendEmail = require("../Services/sendEmail");
 
 
+//render singUpUser from Pages 
+exports.renderRegistration = async (req, res) =>
+  {
 
-exports.renderRegistration = async (req, res) => {
-    res.render("userRegistration");
+    res.render("singUpUser");
   };
   
-//Singin
+  exports.renderLogin = async (req, res) =>
+  {
+
+    res.render("login");
+  };
+  
+  exports.renderEmail = async (req, res) => 
+  {
+    res.render("checkEmail");
+  };
+  
+//SingUp 
 exports.registerUser = async (req, res) => {
   console.log(req.file);
   const { 
@@ -47,10 +60,7 @@ exports.registerUser = async (req, res) => {
 
   res.redirect("login");
 };
-//login
-exports.renderLogin = async (req, res) => {
-  res.render("login");
-};
+
 
 exports.userLogin = async (req, res) => {
   const { email, password } = req.body;
@@ -78,10 +88,6 @@ exports.userLogin = async (req, res) => {
 };
 
 //send email
-exports.renderEmail = async (req, res) => {
-  res.render("checkEmail");
-};
-
 exports.checkEmail = async (req, res) => {
   const { email } = req.body;
   const check = await USER.findOne({

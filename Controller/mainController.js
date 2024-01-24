@@ -4,5 +4,5 @@ const db = require("../Model/index");
 const USER = db.user;
 
 exports.landing = async (req, res) => {
-    res.render("home");
+    res.render("home",{css:"home.css"});
 };
