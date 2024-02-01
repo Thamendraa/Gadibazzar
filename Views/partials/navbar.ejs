@@ -1,58 +1,62 @@
-<div class="navbar">
-    <div class="navbar-left">
-       <img src="/images/bgGadiBazzar.png" alt="Image">
-    </div>
-    <div class="navbar-middle">
-       <input type="text" placeholder="Search..">
-    </div>
-    <div class="navbar-right">
-       <button>Sell Car</button>
-       <a href="/login" style="color: #000000;">
-       <button>Sign In</button></a>
-    </div>
+   <div class="navbar">
+      <div class="navbar-left">
+         <img src="/images/bgGadiBazzar.png" alt="Image">
+      </div>
+      <div class="navbar-middle">
+         <input type="text" placeholder="Search..">
+      </div>
+      <div class="navbar-right">
+         <button>Sell Car</button>
+         <a href="/login" style="color: #000000;">
+         <button>Sign In</button></a>
+      </div>
    </div>
 
    <style>
-       .navbar {
-    overflow: hidden;
-    background-color: #ffffff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      .navbar 
+      {
+         overflow: hidden;
+         background-color: #ffffff;
+         position: fixed;
+         top: 0;
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+   
+   .navbar-left img 
+   {
+      width: 200px;
+      height: 100%;
+      object-fit: cover;
+      left: 10px;
+      bottom: 5px;
+      position: absolute;
    }
    
-   .navbar-left img {
-    width: 200px;
-    height: 100%;
-    object-fit: cover;
-    left: 10px;
-    bottom: 5px;
-    position: absolute;
+   .navbar-middle input[type=text] 
+   {
+      width: 300px;
+      padding: 10px;
+      margin: 10px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
    }
    
-   .navbar-middle input[type=text] {
-    width: 300px;
-    padding: 10px;
-    margin: 10px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-   }
-   
-   .navbar-right button {
-    width: 100px;
-    padding: 10px;
-    margin: 10px;
-    background-color: #FFA500;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 16px;
+   .navbar-right button 
+   {
+      width: 100px;
+      padding: 10px;
+      margin: 10px;
+      background-color: #FFA500;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 16px;
    }
    </style>

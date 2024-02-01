@@ -9,14 +9,19 @@ const sendEmail = require("../Services/sendEmail");
 //render singUpUser from Pages 
 exports.renderRegistration = async (req, res) =>
   {
-
-    res.render("singUpUser");
+    const title='Sing Up Gadibazzar'
+    res.render("singUpUser",
+    {css:"login.css",title}
+    );
   };
   
-  exports.renderLogin = async (req, res) =>
-  {
-
-    res.render("login");
+  exports.renderLogin = async (req, res) => {
+ 
+    const title='Log In Gadibazzar'
+    res.render("login", {
+      css: "login.css",
+      title
+    });
   };
   
   exports.renderEmail = async (req, res) => 

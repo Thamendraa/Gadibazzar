@@ -9,22 +9,16 @@ const router = express.Router();
 // Landing page route (GET)
 router.get('/', hc.landing);
 
-// User registration page route (GET)
-router.get("/singUpUser", uc.renderRegistration);
+// User registration page route
+router.route("/singUpUser").get(uc.renderRegistration).post(uc.registerUser)
+
+// User login page route 
 
 router.route("/login").get(uc.renderLogin).post(uc.userLogin);//RESTfull API
 
-// User registration form submission route (POST)
-router.post("/userRegistration", uc.registerUser);
+// Check email page route 
+router.route("/checkEmail").get(uc.renderEmail).post(uc.checkEmail)
 
-// Login form submission route (POST)
-// router.post("/login", uc.userLogin);
-
-// Check email page route (GET)
-router.get("/checkEmail", uc.renderEmail);
-
-// Check email form submission route (POST)
-router.post("/checkEmail", uc.checkEmail);
 
 // OTP (One-Time Password) verification route (POST)
 router.post("/otpCheck", uc.otpVerify);

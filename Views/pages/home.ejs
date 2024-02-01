@@ -1,7 +1,10 @@
+<!DOCTYPE html>
+<html>
+   <head>
 <%- include('../partials/header') %>
-
+</head>
    <%-include('../partials/navbar.ejs') %>
-   <body>
+   <!-- <body>
       <div class="card" style="width: 18rem;">
          <img src="..." class="card-img-top" alt="...">
          <div class="card-body">
@@ -9,7 +12,35 @@
          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
          <a href="#" class="btn btn-primary">Go somewhere</a>
          </div>
-      </div>
+      </div> -->
+      <div class="container-fluid">
+         <div class="row">
+             <!-- Left Container -->
+             <div class="col-md-4">
+                 <!-- Add your content for the left container here -->
+                 <!-- For example, you can add another card or other content -->
+                 <div class="card" style="width: 50%;">
+                     <div class="card-body">
+                         <h5 class="card-title">Left Container</h5>
+                         <p class="card-text">Some content for the left container.</p>
+                     </div>
+                 </div>
+             </div>
+ 
+             <!-- Right Container -->
+             <div class="col-md-8">
+                 <!-- Your existing card code -->
+                 <div class="card" style="width: 18rem;">
+                     <img src="..." class="card-img-top" alt="...">
+                     <div class="card-body">
+                         <h5 class="card-title">Card title</h5>
+                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                         <a href="#" class="btn btn-primary">Go somewhere</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
    </body>
    <%-include('../partials/scripts.ejs') %>
 </html>
