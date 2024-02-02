@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/header') %>
+</head>
+
+<%- include('../partials/navbar.ejs') %>
+
+<body>
+  <div class="container-fluid">
+
+    <!-- Centered Form -->
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 90vh;">
+      <form class="row g-4">
+        <div class="col-md-3 mb-3">
+            <label for="registration_state" class="form-label">Registration State</label>
+            <select id="registration_state" class="form-select">
+                <option selected>Province</option>
+                <option>Koshi Province</option>
+                <option>Madesh Province</option>
+                <option>Bagmati Province</option>
+                <option>Gandaki Province</option>
+                <option>Lumbini Province</option>
+            </select>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="brand" class="form-label">Brand of the car</label>
+            <input type="text" class="form-control" id="brand" placeholder="Brand">
+        </div>
+    
+        <div class="col-md-3 mb-3">
+            <label for="model" class="form-label">Model</label>
+            <input type="text" class="form-control" id="model" placeholder="Model">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="model_year" class="form-label">Model Year</label>
+          <input type="text" class="form-control" id="model_year" placeholder="Model">
+      </div>
+        <div class="col-md-3 mb-3">
+            <label for="transmission_type" class="form-label">Transmission Type</label>
+            <input type="text" class="form-control" id="transmission_type" placeholder="Transmission Type">
+        </div>
+    
+        <div class="col-md-3 mb-3">
+            <label for="fuel_type" class="form-label">Fuel Type</label>
+            <select id="fuel_type" class="form-select">
+                <option selected>Petrol</option>
+                <option>Diesel</option>
+                <option>EV</option>
+            </select>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="odometer" class="form-label">Odometer</label>
+            <input type="text" class="form-control" id="odometer">
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="engine_description" class="form-label">Engine Description</label>
+          <input type="text" class="form-control" id="engine_description">
+      </div>
+        <div class="col-md-3 mb-3">
+            <label for="ownership" class="form-label">Ownership</label>
+            <select id="ownership" class="form-select">
+                <option selected>First owner</option>
+                <option>Second owner</option>
+                <option>Third owner</option>
+            </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="seat_number" class="form-label">Seat</label>
+          <select id="seat_number" class="form-select">
+              <option selected>5</option>
+              <option>8</option>
+              <option>10</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="text" class="form-control" id="price">
+      </div>
+      <!-- image of the car -->
+      <div class="col-md-5 mb-3">
+        <label for="car_img" class="form-label">Car Images</label>
+        <input type="file" class="form-control" id="car_img" name="car_img[]" multiple accept="image/*">
+        <small class="text-muted">You can upload multiple images. Accepted formats: JPG, JPEG, PNG.</small>
+    </div>
+    <div class="col-md-5 mb-3">
+      <label for="doc_img" class="form-label">Documents Images</label>
+      <input type="file" class="form-control" id="doc_img" name="doc_img[]" multiple accept="image/*">
+      <small class="text-muted">You can upload multiple images. Accepted formats: JPG, JPEG, PNG.</small>
+  </div>
+        <div class="col-12 mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Check me out
+                </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    
+    </div>
+</div>
+</body>
+
+<%- include('../partials/scripts.ejs') %>
+
+</html>

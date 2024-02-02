@@ -34,6 +34,7 @@ db.sequelize = sequelize;
 
 // Define the "user" model using the userModel.js file and associate it with Sequelize
 db.user = require("./userModel.js")(sequelize, DataTypes);
+db.cars = require("./sellCarModel.js")(sequelize, DataTypes)
 
-// Export the db object
+// Export the db object 
 module.exports = db;

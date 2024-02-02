@@ -1,18 +1,18 @@
 //for uploading all photos or files.
 const multer = require("multer");
 
-var storage = multer.diskStorage({
+var carImgStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads/users/");
+    cb(null, "./Uploads/carsOnSell/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
   },
 });
 
-var blogStorage = multer.diskStorage({
+var docsOfCar = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads/blogs/");
+    cb(null, "./Uploads/carsDocs/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
@@ -21,6 +21,6 @@ var blogStorage = multer.diskStorage({
 
 module.exports = {
   multer,
-  storage,
-  blogStorage,
+  carImgStorage,
+  docsOfCar
 };
