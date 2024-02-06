@@ -24,8 +24,9 @@ router.route("/checkEmail").get(uc.renderEmail).post(uc.checkEmail)
 
 
 // OTP (One-Time Password) verification route (POST)
-router.post("/otpCheck", uc.otpVerify);
+router.route("/otpCheck").get(uc.renderOtpCheck).post( uc.otpVerify);
 
+router.route("/resetPassword").get(uc.renderResetPassword).post(uc.resetPassword)
 //Route addCar(sellCar)
 router.route("/sellCar")
   .get(hc.renderAddCar)
