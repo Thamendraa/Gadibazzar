@@ -1,10 +1,13 @@
 const express = require('express');
 const uc = require("../Controller/userController");
 const hc = require("../Controller/mainController")
-
-
+// const multerConfig = require("../Services/multerConfig");
 // Creating an Express Router
 const router = express.Router();
+// creating for add car image and car docs
+// const carImgUpload = multerConfig.multer({ storage: multerConfig.carImgStorage });
+// const docsOfCarUpload = multerConfig.multer({ storage: multerConfig.docsOfCar });
+const { upload } = require("../Services/multerConfig");
 
 // Landing page route (GET)
 router.get('/', hc.landing);
@@ -24,8 +27,9 @@ router.route("/checkEmail").get(uc.renderEmail).post(uc.checkEmail)
 router.post("/otpCheck", uc.otpVerify);
 
 //Route addCar(sellCar)
-router.route("/sellCar").get(hc.addCar)
-
-
+router.route("/sellCar")
+  .get(hc.renderAddCar)
+.post(upload,hc.sellCar)
+// router.route("/sellCar").post(docsOfCarUpload.single("carDocsImage"),hc.sellCar)
 // Exporting the router for use in other files
 module.exports = router;

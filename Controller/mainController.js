@@ -17,24 +17,71 @@ exports.renderAddCar = async (req,res) => {
 
 //post sell car
 
-exports.addCar = async (req, res) => {
-    const { brand, model, model_year, 
-            transmission_type, registration_state,
-            fuel_type,odometer,engine_description,
-            ownership,seat_number,price,
-            car_img,doc_img
-            } = req.body;
+// exports.sellCar = async (req, res) => {
+//   try {
+//     const {
+//       brand, model, model_year, 
+//       transmission_type, registration_state,
+//       fuel_type, odometer, engine_description,
+//       ownership, seat_number, price,carImage,carDocsImage
+//     } = req.body;
 
-    const create = await Cars.create({
-        brand, model, model_year, 
+//     console.log(req.body);
+
+//     const car = await Cars.create({
+//       brand, model, model_year,
+//       transmission_type, registration_state,
+//       fuel_type, odometer, engine_description,
+//       ownership, seat_number, price,
+//       carImage: "http://localhost:4001/Uploads/carsOnSell/" + req.files.filename,
+//       carDocsImage: "http://localhost:4001/Uploads/carsDocs/" + req.files.filename,
+      
+//     });
+
+//     res.redirect("home");
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send('Internal Server Error');
+//   }
+// };
+
+exports.sellCar = async (req, res) => {
+  try {
+    const {
+      brand, model, model_year, 
+      transmission_type, registration_state,
+      fuel_type, odometer, engine_description,
+      ownership, seat_number, price
+    } = req.body;
+    console.log(req.body)
+
+    console.log(req.files)
+
+    if(req.files){
+      const carImage= "http://localhost:4001/carsOnSell/" + req.files.carImage[0].filename;
+      const carDocsImage= "http://localhost:4001/carsDocs/" + req.files.carDocsImage[0].filename;
+
+      const car = await Cars.create({
+        brand, model, model_year,
         transmission_type, registration_state,
-        fuel_type,odometer,engine_description,
-        ownership,seat_number,price,
-        car_img: "http://localhost:4001/" + req.file.filename,
-        doc_img: "http://localhost:4001/" + req.file.filename,
-      userId: req.user.id,
-    });
-    res.redirect("home");
-  };
+        fuel_type, odometer, engine_description,
+        ownership, seat_number, price,
+        carImage,
+        carDocsImage
+      });
+  
+      res.redirect("/")
+    }else{
+      console.log("Please select images")
+      res.redirect("/sellCar")
+    }
+
+;
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
   
   

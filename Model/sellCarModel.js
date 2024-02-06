@@ -44,11 +44,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      car_img: {
+      carImage: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      doc_img: {
+      carDocsImage: {
         type: DataTypes.STRING,
         allowNull: false,
       }
