@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/header.ejs') %>
+</head>
+
+
+<body>
+    <%- include('../partials/navbar.ejs') %>
+<div class="container-fluid">
+    <!-- Centered Form -->
+    <div class="container d-flex justify-content-center" style="min-height: 90vh;">
+        <form class="row g-3" action="/kyc" method="post" enctype="multipart/form-data">
+        <div class="col-md-4 ">
+            <label for="full_name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="full_name" placeholder="<%=user.name%>">
+        </div>
+        <div class="col-md-4">
+            <label for="dob" class="form-label">Date Of Birth</label>
+            <input type="date" class="form-control" name="dob">
+        </div>
+        <div class="col-md-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select name="gender" class="form-select">
+                <option selected><%=user.gender%></option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Others</option>
+            </select>
+        </div>
+        <div class="col-md-4 ">
+            <label for="Profession" class="form-label">Profession</label>
+            <input type="text" class="form-control" name="profession" placeholder="profession">
+        </div>
+        
+        <div class="col-md-4 ">
+            <label for="phone_number" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" name="phone_number">
+        </div>
+        <div class="col-md-3">
+            <label for="marital_status" class="form-label">Marital Status</label>
+            <select name="marital_status" class="form-select">
+                <option selected>Not Married</option>
+                <option>Married</option>
+            </select>
+        </div>
+        <div class="col-md-5">
+            <label for="current_address" class="form-label">Current Address</label>
+            <input type="text" class="form-control" name="current_address">
+        </div>
+        <div class="col-md-5 mx-5">
+            <label for="permament_address" class="form-label">Permanent Address</label>
+            <input type="text" class="form-control" name="permanent_address">
+        </div>
+        <div class="col-md-3">
+            <label for="identity_type" class="form-label">Identity Type</label>
+            <select name="identity_type" class="form-select">
+                <option selected>CitizenShip</option>
+                <option>Driving Licenses</option>
+                <option>NID</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="citizenShip_number" class="form-label">CitizenShip Number</label>
+            <input type="text" class="form-control" name="citizenShip_number">
+        </div>
+        <div class="col-md-3">
+          <label for="issued_district" class="form-label">Issued District</label>
+          <input type="text" class="form-control" name="issued_district">
+      </div>
+      <div class="col-md-3">
+        <label for="issued_date" class="form-label">Issued Date</label>
+        <input type="date" class="form-control" name="issued_date">
+    </div>
+      <!-- image of the car -->
+      <div class="col-md-5 ">
+        <label for="user_image" class="form-label">User Images</label>
+        <input type="file" name="userImage" class="form-control" id="UserImage" >
+        <small class="text-muted">You can upload single images. Accepted formats: JPG, JPEG, PNG.</small>
+    </div>
+        <div class="col-md-5">
+        <label for="DocsImage" class="form-label">Documents Images</label>
+        <input type="file" name="userDocs" class="form-control" id="userDocs"  multiple>
+        <small class="text-muted">You can upload front and back of the card. Accepted formats: JPG, JPEG, PNG.</small>
+         </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    
+    </div>
+</div>
+</body>
+
+<%- include('../partials/scripts.ejs') %>
+
+</html>

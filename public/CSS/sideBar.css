@@ -1,0 +1,67 @@
+
+.sidebar {
+    
+    background-color: #ffffff;
+    color: #161616;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0;
+    /* Height of navbar */
+    height: 100vh;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.432);
+   
+    z-index: 600;
+    overflow-y: auto;
+  }
+
+  .profile {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .profile h4 {
+    margin: 10px 0;
+  }
+
+  .verified {
+    color: green;
+  }
+
+  .sidebar-link {
+    color: #000000;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  .sidebar-link.active {
+    background-color: rgb(255, 196, 0);
+  }
+
+  .sidebar-link:hover {
+    background-color: #ffc60b;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    margin-top: 10px;
+    display: block; /* Added display block */
+  }
+
+  .sidebar-link i {
+    margin-right: 10px; /* Add space between icon and text */
+  }
+
+ 
+   
+
+  

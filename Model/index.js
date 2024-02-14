@@ -35,6 +35,13 @@ db.sequelize = sequelize;
 // Define the "user" model using the userModel.js file and associate it with Sequelize
 db.user = require("./userModel.js")(sequelize, DataTypes);
 db.cars = require("./sellCarModel.js")(sequelize, DataTypes)
+db.kyc = require("./kycVerified.js")(sequelize,DataTypes)
 
+
+
+
+//relationship
+db.user.hasOne(db.kyc)
+db.kyc.belongsTo(db.user)
 // Export the db object 
 module.exports = db;

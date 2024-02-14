@@ -1,37 +1,90 @@
 <!DOCTYPE html>
 <html>
-   <head>
-<%- include('../partials/header') %>
+
+<head>
+  <%- include('../partials/header.ejs') %>
 </head>
-   <%-include('../partials/navbar.ejs') %>
-   <body>
-      <div class="container-fluid">
-         <div class="row">
-             <!-- Left Container -->
-             <div class="col-md-4">
-                 <!-- Add your content for the left container here -->
-                 <!-- For example, you can add another card or other content -->
-                 <div class="card" style="width: 50%;">
-                     <div class="card-body">
-                         <h5 class="card-title">Left Container</h5>
-                         <p class="card-text">Some content for the left container.</p>
-                     </div>
-                 </div>
-             </div>
-             <!-- Right Container -->
-             <div class="col-md-8">
-                 <!-- Your existing card code -->
-                 <div class="card" style="width: 18rem;">
-                     <img src="..." class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <h5 class="card-title">Card title</h5>
-                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                         <a href="#" class="btn btn-primary">Go somewhere</a>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-   </body>
-   <%-include('../partials/scripts.ejs') %>
+<body>
+  <%- include('../partials/navbar.ejs') %>
+  <div class="container-fluid mt-3">
+    <div class="row">
+
+      <!-- Sidebar -->
+      <div class="col-md-2 mt-5">
+      
+        <div id="filterContainer">
+          <div class="d-flex justify-content-between align-items-center">
+            <p>Filter</p>
+            <button id="toggleFilter" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div id="filterContent">
+            <form>
+              <div class="form-group">
+                <label for="option1">Option 1</label>
+                <input type="radio" id="option1" name="filterOption">
+              </div>
+              <div class="form-group">
+                <label for="option2">Option 2</label>
+                <input type="radio" id="option2" name="filterOption">
+              </div>
+              <div class="form-group">
+                <label for="option3">Option 3</label>
+                <input type="radio" id="option3" name="filterOption">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="filterContainer">
+          <div class="d-flex justify-content-between align-items-center">
+            <p>Filter</p>
+            <button id="toggleFilter1" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div id="filterContent1">
+            <form>
+              <div class="form-group">
+                <label for="option1">Option 1</label>
+                <input type="radio" id="option1" name="filterOption">
+              </div>
+              <div class="form-group">
+                <label for="option2">Option 2</label>
+                <input type="radio" id="option2" name="filterOption">
+              </div>
+              <div class="form-group">
+                <label for="option3">Option 3</label>
+                <input type="radio" id="option3" name="filterOption">
+              </div>
+            </form>
+          </div>
+        </div>
+        
+      </div>
+      
+  <div class="col-md-8 mb-3">
+    <div class="row">
+      <% cars.forEach(car => { %>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="<%=car.carImages%>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><Card title><%=car.brand %></h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <% }) %> 
+    </div>
+  </div>
+  </div>
+  </div>
+  <%-include('../partials/scripts.ejs') %>
+  <script>
+     $(document).ready(function(){
+    $('#toggleFilter1,#toggleFilter').click(function(){
+      $('#filterContent1,#filterContent').toggle();
+      $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+    });
+  });
+  </script>
+</body>
 </html>

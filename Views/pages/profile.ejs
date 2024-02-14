@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('../partials/header.ejs') %>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <%- include('../partials/navbar.ejs') %>
+
+  <!-- Main Container -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar -->
+      <div class="col-md-3 ml-0">
+        <%- include('../partials/sideBar.ejs') %>
+      </div>
+
+     <!-- Main Content -->
+<!-- Main Content -->
+<div class="col-md-8 mb-1 mt-3  border">
+ 
+    <div class="d-flex justify-content-between align-items-start">
+      <!-- Personal Details -->
+      <div>
+        <h4 class="font-weight-bold">Personal Details</h4>
+      </div>
+      <!-- KYC Button -->
+      <div>
+       <a href="/kyc">
+        <button class="btn btn-primary">
+          <i class="fas fa-id-card"></i> KYC
+        </button>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Profile Information -->
+    <div class="d-flex justify-content-start  mt-3">
+      <!-- Profile Image -->
+      <div class="mx-4">
+        <img src="/images/profilejpg.jpg" alt="Profile Image" class="rounded-circle" style="width: 200px; height: 200px;">
+      </div>
+      <!-- Personal Information -->
+      <div class="mx-5 mt-3">
+        <!-- Personal Information -->
+        <p><span class="font-weight-bold">Personal Information:</span></p>
+        <div class="pl-3">
+          <p><span class="bg-light p-1">Username: </span><strong><%= user.name %></strong></p>
+          <p><span class="bg-light p-1">Date of Birth: </span>January 1, 1990</p>
+          <p><span class="bg-light p-1">Gender: </span><%= user.gender%></p>
+          <!-- Additional Information -->
+          <p><strong><span>Additional Information:</span></strong></p>
+          <div class="d-flex  ">
+            <!-- Profession -->
+            <div class="mr-4">
+                <div>
+                    <p><span >Profession:</span></p>
+                    <p><span>Engineer</span></p>
+                </div>
+            </div>
+            <!-- PAN No -->
+            <div class="mx-5">
+                <div>
+                    <p><span>PAN No:</span></p>
+                    <p>ABCDE1234F</p>
+                </div>
+            </div>
+            <!-- Marital Status -->
+            <div class="mx-4">
+                <div>
+                    <p><span>Marital Status:</span></p>
+                    <p><span>Married</span></p>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+    <!--Address Information-->
+    <div class="mx-5 d-inline-flex">
+    <p><span><strong> Address Information:</strong></span></p>
+    <div class="d-flex  mx-5 mt-5">
+      <!-- Profession -->
+      <div class="mx-5">
+          <div>
+              <p><span >Current Address:</span></p>
+              <p><span> 123 Main St, City, Country</span></p>
+          </div>
+      </div>
+      <!-- PAN No -->
+      <div class="mx-5">
+          <div>
+              <p><span>Permanent Address: </span></p>
+              <p>456 Elm St, City, Country</p>
+          </div>
+      </div>
+  </div>
+  </div>
+  <!-- Documents Images-->
+  <div class="mx-5 d-inline-flex">
+    <p><span><strong>Documents Information:</strong></span></p>
+    <div class="d-flex mx-5 mt-5">
+        <!-- Current Address -->
+        <div class="mx-5">
+            <div>
+                <p>CitizenShip front:</p>
+                <img src="/images/bgGadiBazzar.png" alt="Current Address Image" style="width: 150px; height: 150px;">
+            </div>
+        </div>
+        <!-- Permanent Address -->
+        <div class="mx-5">
+            <div>
+                <p>CitizenShip Back :</p>
+                <img src="/images/singup.png" alt="Permanent Address Image" style="width: 150px; height: 150px;">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- documenst Details -->
+<div class="mx-5 d-inline-flex">
+  <p><span><strong>Documents Details</strong></span></p>
+  <div class="d-flex  mx-5 mt-5">
+  
+    <div class="mx-4">
+        <div>
+            <p><span >Identity Type</span></p>
+            <p><span> ***************</span></p>
+        </div>
+    </div>
+   
+    <div class="mx-4">
+        <div>
+            <p><span>Citizenship number </span></p>
+            <p>##########</p>
+        </div>
+    </div>
+    <div class="mx-4">
+      <div>
+          <p><span>Document issued </span></p>
+          <p>###########</p>
+      </div>
+  </div>
+  <div class="mx-4">
+    <div>
+        <p><span>Document issued address</span></p>
+        <p>$$$$$$$$$$</p>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
+<!-- Scripts -->
+<%- include('../partials/scripts.ejs') %>
+
+</html>

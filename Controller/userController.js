@@ -4,7 +4,7 @@ const db = require("../Model/index");
 const USER = db.user;
 const bcrypt = require("bcryptjs");
 const sendEmail = require("../Services/sendEmail");
-
+const jwt = require("jsonwebtoken");
 
 //render singUpUser from Pages 
 exports.renderRegistration = async (req, res) =>
@@ -76,22 +76,28 @@ exports.registerUser = async (req, res) => {
 exports.userLogin = async (req, res) => {
   const { email, password } = req.body;
 
-  const userSearch = await USER.findAll({
+  const userSearch = await USER.findOne({
     where: {
       email: email,
     },
   });
-  console.log(email);
+  console.log(userSearch);
 
-  if (userSearch.length == 0) {
+  if (userSearch==null) {
     console.log("wrong email");
     res.redirect("/userRegistration");
   }
-  console.log(userSearch[0].password);
-  console.log(bcrypt.compareSync(password, userSearch[0].password));
+  console.log(userSearch.password);
+  console.log(bcrypt.compareSync(password, userSearch.password));
   
-  if (bcrypt.compareSync(password, userSearch[0].password)) {
+  if (bcrypt.compareSync(password, userSearch.password)) {
+    var token = jwt.sign({ id: userSearch.id }, process.env.SECRET_KEY, {
+      expiresIn: 86400,
+    });
+    res.cookie("token", token);
+    console.log(token)
     res.redirect("/");
+
   } else {
     res.redirect("/login");
     console.log("wrong password");
@@ -191,6 +197,63 @@ exports.resetPassword= async (req,res)=>{
   }
 }
 
-// exports.landing = async (req, res) => {
-//   res.render("home");
-// };
+//logOut
+//logout
+exports.makeLogout = (req, res) => {
+  res.clearCookie("token");
+  // req.flash("success", "Logged out successfully!");
+  res.redirect("/login");
+};
+
+//**************************************KYC CONTROLLERS*************************** */
+exports.renderKYC = async (req, res) =>
+  {
+    const user=req.user;
+    res.render("kyc",
+    {css:"home.css", user:user}
+    );
+  };
+
+  //Post KYC
+  exports.kycRegister = async (req, res) => {
+    console.log(req.file);
+    const { 
+      full_name, 
+      dob, 
+      gender,
+      profession,
+      phone_number,
+      marital_status,
+      current_address,
+      permanent_address,identity_type,citizenShip_number,
+      issued_district,issued_date
+    } = req.body;
+   console.log(req.body)
+   console.log(req.user.id)
+    //create table
+    if(req.files){
+      const userImage= "http://localhost:4001/userImage/" + req.files.userImage[0].filename;
+      const userDocs= "http://localhost:4001/userDocs/" + req.files.userDocs[0].filename;
+
+      const createKyc = await db.kyc.create({
+      full_name, 
+      dob, 
+      gender,
+      profession,
+      phone_number,
+      marital_status,
+      current_address,
+      permanent_address,identity_type,citizenShip_number,
+      issued_district,issued_date,userImage,userDocs,
+      userId: req.user.id,
+      });
+  
+    res.redirect("/profile");
+  };
+  
+
+
+
+
+  }
+

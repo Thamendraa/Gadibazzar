@@ -7,20 +7,18 @@ const path = require("path");
 // const isAuthenticated = require("./Middleware/isAuthenticated");
 const dotenv = require("dotenv");
 const session = require("express-session");
-
 app.set("view engine","ejs");
 app.set('views', path.join(__dirname, 'views/pages'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, "Uploads")));
 app.use(express.json());
-
 app.use(require("cookie-parser")());
 
 ///////////////////////////////////////for session
 app.use(
     session({
       secret: "123456789",
-      resave: true,
+      reSave: true,
       saveUninitialized: true,
     })
   );

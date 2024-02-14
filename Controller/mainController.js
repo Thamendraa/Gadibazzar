@@ -6,44 +6,19 @@ const Cars = db.cars;
 
 //rendering the main landing page
 exports.landing = async (req, res) => {
-    res.render("home",{css:"home.css"});
+    const user=req.user;
+    const cars= await  Cars.findAll();  //get all car data from database
+    console.log(user);
+    res.render("home",{css:"home.css",user:user,cars});
 };
 
 //rendering the sellCar page
 exports.renderAddCar = async (req,res) => {
+    const user = req.user
     res.render("sellCar",
-    {css:"sellCar.css"});
+    {css:"home.css",
+      user:user});
 };
-
-//post sell car
-
-// exports.sellCar = async (req, res) => {
-//   try {
-//     const {
-//       brand, model, model_year, 
-//       transmission_type, registration_state,
-//       fuel_type, odometer, engine_description,
-//       ownership, seat_number, price,carImage,carDocsImage
-//     } = req.body;
-
-//     console.log(req.body);
-
-//     const car = await Cars.create({
-//       brand, model, model_year,
-//       transmission_type, registration_state,
-//       fuel_type, odometer, engine_description,
-//       ownership, seat_number, price,
-//       carImage: "http://localhost:4001/Uploads/carsOnSell/" + req.files.filename,
-//       carDocsImage: "http://localhost:4001/Uploads/carsDocs/" + req.files.filename,
-      
-//     });
-
-//     res.redirect("home");
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send('Internal Server Error');
-//   }
-// };
 
 exports.sellCar = async (req, res) => {
   try {
@@ -58,16 +33,16 @@ exports.sellCar = async (req, res) => {
     console.log(req.files)
 
     if(req.files){
-      const carImage= "http://localhost:4001/carsOnSell/" + req.files.carImage[0].filename;
-      const carDocsImage= "http://localhost:4001/carsDocs/" + req.files.carDocsImage[0].filename;
+      const carImages= "http://localhost:4001/carsOnSell/" + req.files.carImages[0].filename;
+      const carDocsImages= "http://localhost:4001/carsDocs/" + req.files.carDocsImages[0].filename;
 
       const car = await Cars.create({
         brand, model, model_year,
         transmission_type, registration_state,
         fuel_type, odometer, engine_description,
         ownership, seat_number, price,
-        carImage,
-        carDocsImage
+        carImages,
+        carDocsImages
       });
   
       res.redirect("/")
@@ -82,6 +57,23 @@ exports.sellCar = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
+  
+
+
 
   
-  
+//profile page render*************************************************************
+exports.renderProfile = async (req, res) => {
+  const user=req.user;
+ 
+  res.render("profile",{css:"home.css",user:user});
+};
+
+//myCars render*******************************************************************
+exports.renderMyCarsList = async(req,res)=>{
+  const user=req.user;
+ 
+  res.render("myCarsList",{css:"home.css",user:user});
+};
+
+

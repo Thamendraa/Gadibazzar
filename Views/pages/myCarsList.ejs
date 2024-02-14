@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/header.ejs') %>
+    
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+  <%- include('../partials/navbar.ejs') %>
+
+  <!-- Main Container -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar -->
+      <div class="col-md-3">
+        <%- include('../partials/sideBar.ejs') %>
+      </div>
+
+     <!-- Main Content -->
+<!-- Main Content -->
+<!-- <div class="col-md-8 mb-3">
+  <div class="border p-2 shadow">
+      <table id="myTable" class="display">
+          <thead>
+              <tr>
+                  <th>Column 1</th>
+                  <th>Column 2</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Row 1 Data 1</td>
+                  <td>Row 1 Data 2</td>
+              </tr>
+              <tr>
+                  <td>Row 2 Data 1</td>
+                  <td>Row 2 Data 2</td>
+              </tr>
+          </tbody>
+      </table>
+      
+</div>
+</div> -->
+<div class="col-md-8 mt-3 mb-5 border">
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</div>
+<%- include('../partials/scripts.ejs') %>
+<script>
+    new DataTable('#myTable');
+</script>
+</body>
+
+
+</html>

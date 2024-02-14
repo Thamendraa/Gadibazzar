@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <%- include('../partials/header') %>
+    <%- include('../partials/header.ejs') %>
 </head>
 
-<%- include('../partials/navbar.ejs') %>
 
 <body>
+    <%- include('../partials/navbar.ejs') %>
 <div class="container-fluid">
 
     <!-- Centered Form -->
@@ -81,12 +81,12 @@
       <!-- image of the car -->
       <div class="col-md-5 mb-3">
         <label for="carImage" class="form-label">Car Images</label>
-        <input type="file" name="carImage" class="form-control" id="carImage" multiple >
+        <input type="file" name="carImages" class="form-control" id="carImage" multiple >
         <small class="text-muted">You can upload multiple images. Accepted formats: JPG, JPEG, PNG.</small>
     </div>
         <div class="col-md-5 mb-3">
         <label for="carDocsImage" class="form-label">Documents Images</label>
-        <input type="file" name="carDocsImage" class="form-control" id="carDocsImage"  multiple>
+        <input type="file" name="carDocsImages" class="form-control" id="carDocsImage"  multiple>
         <small class="text-muted">You can upload multiple images. Accepted formats: JPG, JPEG, PNG.</small>
          </div>
         <div class="col-12 mb-3">

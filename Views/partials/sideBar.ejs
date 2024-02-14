@@ -1,0 +1,39 @@
+
+  <link rel="stylesheet" type="text/css" href="/CSS/sideBar.css">
+
+<body>
+      <div class="col-md-8 sidebar ml-0">
+        <div class="profile">
+          <img src="/images/profilejpg.jpg" alt="Profile Picture">
+          <h4>John Doe</h4>
+          <p>123 Main St, City, Country</p>
+          <p><i class="fas fa-check-circle verified"></i> Verified</p>
+        </div>
+        <div class="mt-5 ">
+          <a href="/profile" class="sidebar-link"><i class=" fas fa-info"></i></i><span>My Information</span></a>
+          <a href="/myCarList" class="sidebar-link"><i class="fas fa-car"></i> <span>My Vehicles</span></a>
+          <a href="#" class="sidebar-link"><i class="fas fa-file-alt"></i> <span>Request for Docs</span></a>
+          <a href="#" class="sidebar-link"><i class="fas fa-file-alt"></i> <span>Request for Docs</span></a>
+          <a href="#" class="sidebar-link"><i class="fas fa-car"></i> <span>My Vehicles</span></a>
+          <a href="#" class="sidebar-link"><i class="fas fa-file-alt"></i> <span>Request for Docs</span></a>
+        </div>
+      </div>
+ 
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var links = document.querySelectorAll('.sidebar-link');
+            links.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    links.forEach(function (l) {
+                        l.classList.remove('active');
+                    });
+                    link.classList.add('active');
+                });
+                // Check if the link href matches the current page URL
+                if (window.location.pathname === link.getAttribute('href')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    

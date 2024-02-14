@@ -2,40 +2,12 @@
 const multer = require("multer");
 const path=require("path")
 
-// var carImgStorage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "../Uploads/carsOnSell/");
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, Date.now() + "-" + file.originalname);
-//   },
-// });
-
-// var docsStorage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "../Uploads");
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, Date.now() + "-" + file.originalname);
-//   },
-// });
-
-// const carImgUpload = multer({ storage: carImgStorage });
-// const docsOfCarUpload = multer({ storage: docsStorage });
-
-// module.exports = {
-//   multer,
-//   carImgUpload,
-//   docsOfCarUpload
-// };
-
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    if (file.fieldname === 'carImage') {
+    if (file.fieldname === 'carImages') {
       cb(null, path.join(__dirname, '../Uploads/carsOnSell'));
     }
-    else if(file.fieldname=='carDocsImage') {
+    else if(file.fieldname=='carDocsImages') {
       cb(null, path.join(__dirname, '../Uploads/carsDocs'));
     }
     else{
@@ -49,13 +21,13 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  if (file.fieldname === "carImage") {
+  if (file.fieldname === "carImages") {
     (file.mimetype === 'image/jpeg'
       || file.mimetype === 'image/png')
       ? cb(null, true)
       : cb(null, false);
   }
-  else if (file.fieldname === "carDocsImage") {
+  else if (file.fieldname === "carDocsImages") {
     (file.mimetype === 'image/png'
       || file.mimetype === 'image/jpeg')
       ? cb(null, true)
@@ -66,6 +38,8 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter
-}).fields([{ name: 'carDocsImage', maxCount: 1 }, { name: 'carImage', maxCount: 1 }]);
+}).fields([{ name: 'carDocsImages', maxCount: 2 }, { name: 'carImages', maxCount: 3 }]);
+
+
 
 module.exports={upload}

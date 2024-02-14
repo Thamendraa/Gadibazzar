@@ -1,31 +1,26 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    margin-top: 10%;
-   }
+
+   nav {
    
-   .navbar {
-    overflow: hidden;
     background-color: #ffffff;
-    position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   }
-   
-   .navbar-left img {
+ }
+ 
+ .navbar-left img {
     width: 200px;
     height: 100%;
     object-fit: cover;
     left: 10px;
     bottom: 5px;
     position: absolute;
-   }
-   
-   .navbar-middle input[type=text] {
+ }
+ 
+ .navbar-middle input[type=text] {
     width: 300px;
     padding: 10px;
     margin: 10px;
@@ -33,9 +28,9 @@ body {
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-   }
-   
-   .navbar-right button {
+ }
+ 
+ .sellCar, .SignIn {
     width: 100px;
     padding: 10px;
     margin: 10px;
@@ -45,4 +40,65 @@ body {
     cursor: pointer;
     border-radius: 4px;
     font-size: 16px;
-   }
+ }
+ 
+/* Dropdown container */
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+   background-color: transparent;
+   color: #000000;
+   padding: 10px;
+   font-size: 16px;
+   border: none;
+   cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+   background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+   display: block;
+}
+
+/* Style profile picture */
+.profile-pic {
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   margin-right: 8px;
+}
+
+.dropdown a{
+    text-decoration: none;
+}
+#filterContainer {
+   border: 1px solid #ccc;
+   padding: 10px;
+   margin-bottom: 20px;
+ }
