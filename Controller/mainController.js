@@ -58,8 +58,14 @@ exports.sellCar = async (req, res) => {
   }
 };
   
-
-
+//***********************************************View A Car*********************************** */
+exports.renderViewCar= async (req, res) => {
+  const user=req.user;
+  const car=  await Cars.findByPk(req.params.id); 
+ 
+  console.log(car)
+  res.render("singleCarView",{css:"home.css",user:user,car:car});
+};
 
   
 //profile page render*************************************************************
@@ -74,6 +80,12 @@ exports.renderMyCarsList = async(req,res)=>{
   const user=req.user;
  
   res.render("myCarsList",{css:"home.css",user:user});
+};
+
+//********************************************RequestDocs********************************** */
+exports.renderUserRequestDocs = async(req,res)=>{
+  const user=req.user;
+  res.render("userRequestDocs",{css:"home.css",user:user});
 };
 
 

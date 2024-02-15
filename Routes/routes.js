@@ -1,6 +1,7 @@
 const express = require('express');
 const uc = require("../Controller/userController");
 const hc = require("../Controller/mainController")
+const ad = require("../Controller/adminController")
 const router = express.Router();
 // creating for add car image and car docs
 const isAuthenticated = require("../Middleware/isAuthenticated");
@@ -40,5 +41,23 @@ router.route("/kyc").get(isAuthenticated.isAuthenticated,uc.renderKYC)
 
 //myCarList
 router.route("/myCarlist").get(isAuthenticated.isAuthenticated,hc.renderMyCarsList)
+
+//requestDocs
+router.route("/userRequestDocs").get(isAuthenticated.isAuthenticated,hc.renderUserRequestDocs)
+
+//viewSingleCar
+router.route("/singleCarView/:id").get(isAuthenticated.isAuthenticated,hc.renderViewCar)
+
+
+//************************************************ADMIN************************************** */
+router.route("/admin").get(ad.renderAdminHome)
+router.route("/verifyKyc").get(ad.verifyKYC)
+router.route("/viewKycDetails/:id").get(ad.renderViewKYCDetails)
+router.route("/updateKycRequest/:id").post(ad.updateRequest)
+
+
+
+
+
 
 module.exports = router;

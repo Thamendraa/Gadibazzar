@@ -6,73 +6,126 @@
 </head>
 <body>
   <%- include('../partials/navbar.ejs') %>
-  <div class="container-fluid mt-3">
+  <div class="container-fluid mt-3 mb-3">
     <div class="row">
 
       <!-- Sidebar -->
       <div class="col-md-2 mt-5">
       
-        <div id="filterContainer">
-          <div class="d-flex justify-content-between align-items-center">
-            <p>Filter</p>
-            <button id="toggleFilter" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
-          </div>
-          <div id="filterContent">
-            <form>
-              <div class="form-group">
-                <label for="option1">Option 1</label>
-                <input type="radio" id="option1" name="filterOption">
-              </div>
-              <div class="form-group">
-                <label for="option2">Option 2</label>
-                <input type="radio" id="option2" name="filterOption">
-              </div>
-              <div class="form-group">
-                <label for="option3">Option 3</label>
-                <input type="radio" id="option3" name="filterOption">
-              </div>
-            </form>
-          </div>
-        </div>
-        <div id="filterContainer">
-          <div class="d-flex justify-content-between align-items-center">
-            <p>Filter</p>
+        <div id="filterContainer1" class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <p>Filter 1</p>
             <button id="toggleFilter1" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
           </div>
           <div id="filterContent1">
             <form>
-              <div class="form-group">
-                <label for="option1">Option 1</label>
-                <input type="radio" id="option1" name="filterOption">
-              </div>
-              <div class="form-group">
-                <label for="option2">Option 2</label>
-                <input type="radio" id="option2" name="filterOption">
-              </div>
-              <div class="form-group">
-                <label for="option3">Option 3</label>
-                <input type="radio" id="option3" name="filterOption">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="option1">Option 1</label>
+                  <input type="radio" id="option1" name="filterOption">
+                </div>
+                <div class="form-group">
+                  <label for="option2">Option 2</label>
+                  <input type="radio" id="option2" name="filterOption">
+                </div>
+                <div class="form-group">
+                  <label for="option3">Option 3</label>
+                  <input type="radio" id="option3" name="filterOption">
+                </div>
               </div>
             </form>
           </div>
         </div>
-        
+      
+        <div id="filterContainer2" class="card mt-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <p>Filter 2</p>
+            <button id="toggleFilter2" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div id="filterContent2">
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="option4">Option 4</label>
+                  <input type="radio" id="option4" name="filterOption2">
+                </div>
+                <div class="form-group">
+                  <label for="option5">Option 5</label>
+                  <input type="radio" id="option5" name="filterOption2">
+                </div>
+                <div class="form-group">
+                  <label for="option6">Option 6</label>
+                  <input type="radio" id="option6" name="filterOption2">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="filterContainer3" class="card mt-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <p>Filter 2</p>
+            <button id="toggleFilter3" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div id="filterContent3">
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="option4">Option 4</label>
+                  <input type="radio" id="option4" name="filterOption2">
+                </div>
+                <div class="form-group">
+                  <label for="option5">Option 5</label>
+                  <input type="radio" id="option5" name="filterOption2">
+                </div>
+                <div class="form-group">
+                  <label for="option6">Option 6</label>
+                  <input type="radio" id="option6" name="filterOption2">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="filterContainer4" class="card mt-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <p>Filter 2</p>
+            <button id="toggleFilter4" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div id="filterContent4">
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="option4">Option 4</label>
+                  <input type="radio" id="option4" name="filterOption2">
+                </div>
+                <div class="form-group">
+                  <label for="option5">Option 5</label>
+                  <input type="radio" id="option5" name="filterOption2">
+                </div>
+                <div class="form-group">
+                  <label for="option6">Option 6</label>
+                  <input type="radio" id="option6" name="filterOption2">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
       
   <div class="col-md-8 mb-3">
     <div class="row">
       <% cars.forEach(car => { %>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="<%=car.carImages%>" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title"><Card title><%=car.brand %></h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%=car.carImages%>" alt="Card image cap" style="height: 200px; ">
+            <div class="card-body">
+              <h5 class="card-title"><%=car.brand %></h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="/singleCarView/<%- car.id %>" class="btn btn-primary">View Car</a>
+            </div>
           </div>
         </div>
-      </div>
-      <% }) %> 
+      <% }) %>
+      
     </div>
   </div>
   </div>
@@ -84,6 +137,18 @@
       $('#filterContent1,#filterContent').toggle();
       $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
     });
+    $('#toggleFilter2').click(function(){
+    $('#filterContent2').toggle();
+    $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+  });
+  $('#toggleFilter3').click(function(){
+    $('#filterContent3').toggle();
+    $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+  });
+  $('#toggleFilter4').click(function(){
+    $('#filterContent4').toggle();
+    $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+  });
   });
   </script>
 </body>
