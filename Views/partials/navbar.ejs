@@ -10,16 +10,20 @@
       </div>
       <div class="navbar-right ">
          <a><i class="fa-regular fa-bell fa-2x mr-4 mt-1"></i></a>
-        <a><i class="fa-regular fa-message fa-2x mr-4 mt-1"></i></a> 
+         
+        <a href="#">
+         <span class="badge rounded-pill badge-notification bg-danger">1</span>
+         <i class="fa-regular fa-message fa-2x "></i>
+       </a>
          <a href="/sellCar"><button class="sellCar border">Sell Car</button></a>
          
-         <div class="dropdown mr-4">
+         <div class="dropdown mr-2">
             <button class="dropbtn">
                <img src="/images/profilejpg.jpg" alt="Profile Picture" class="profile-pic">
               <%= user.name %>
              
             </button>
-            <div class="dropdown-content ">
+            <div class="dropdown-content ml-2 ">
                <a href="/profile">Profile</a>
                <a href="/logout"><i class=" fa-solid fa-arrow-right-from-bracket px-2"></i>Logout</a>
             </div>

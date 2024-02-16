@@ -9,11 +9,11 @@ exports.renderAdminHome = async (req, res) => {
     res.render("admin",);
 };
 
-//add new user to database
+//
 exports.verifyKYC = async(req,res)=>{
     
     const kyc= await  KYC.findAll(); 
-    console.log(kyc) //get all car data from database
+    console.log(kyc) 
     res.render("verifyKyc",{kyc:kyc});
 }    
 

@@ -4,11 +4,12 @@
     background-color: #ffffff;
     color: #161616;
     position: relative;
+    top: 20px;
     bottom: 0;
     left: 0;
     padding: 58px 0 0;
     /* Height of navbar */
-    height: 100vh;
+    /* height: 100vh; */
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.432);
    
     z-index: 600;
@@ -40,7 +41,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    border-radius: 10px; /* Rounded corners */
+    /* border-radius: 10px; Rounded corners */
   }
 
   .sidebar-link.active {

@@ -2,7 +2,7 @@ const { name } = require("ejs");
 const DB = require("../Config/dbConfig");
 const db = require("../Model/index");
 const Cars = db.cars;
-
+const  User = db.user;
 
 //rendering the main landing page
 exports.landing = async (req, res) => {
@@ -42,7 +42,8 @@ exports.sellCar = async (req, res) => {
         fuel_type, odometer, engine_description,
         ownership, seat_number, price,
         carImages,
-        carDocsImages
+        carDocsImages,
+        userId: req.user.id,
       });
   
       res.redirect("/")
@@ -78,8 +79,12 @@ exports.renderProfile = async (req, res) => {
 //myCars render*******************************************************************
 exports.renderMyCarsList = async(req,res)=>{
   const user=req.user;
- 
-  res.render("myCarsList",{css:"home.css",user:user});
+  const myCar = await db.cars.findAll({
+    where: {
+      userId: req.user.id,
+    },
+  });
+  res.render("myCarsList",{css:"home.css",user:user,myCar:myCar});
 };
 
 //********************************************RequestDocs********************************** */
@@ -88,4 +93,22 @@ exports.renderUserRequestDocs = async(req,res)=>{
   res.render("userRequestDocs",{css:"home.css",user:user});
 };
 
+//Make Request for documents
+exports.makeRequest =async (req,res)=> {
+  
+};
+
+//*****************************************SellerProfile*********************** */
+exports.renderSellerProfile = async(req,res)=>{
+  const user=req.user;
+  const id = req.params.userId;
+  console.log(id)
+  const seller = await db.kyc.findAll({
+    where: {
+      userId: id,
+    },
+  });
+
+  res.render("sellerProfile",{css:"home.css",user:user,seller});
+};
 

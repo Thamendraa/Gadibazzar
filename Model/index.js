@@ -40,8 +40,18 @@ db.kyc = require("./kycVerified.js")(sequelize,DataTypes)
 
 
 
-//relationship
+//relationship for user and kyc
 db.user.hasOne(db.kyc)
 db.kyc.belongsTo(db.user)
+// relationship between user and postCars
+db.kyc.hasMany(db.cars)
+db.cars.belongsTo(db.kyc)
+
+
+
+
+
+
+
 // Export the db object 
 module.exports = db;

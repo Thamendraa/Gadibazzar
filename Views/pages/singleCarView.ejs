@@ -2,24 +2,151 @@
 <html>
 
 <head>
-    <%- include('../partials/header.ejs') %>
+  <%- include('../partials/header.ejs') %>
 </head>
 
 
 <body>
-    <%- include('../partials/navbar.ejs') %>
-     
-<div class="container-fluid">
-    <!-- Centered Form -->
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="<%=car.carImages%>" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="container-fluid ">
+    <div class="row justify-content-center  ">
+      <!-- Left div -->
+      <div class="col-md-5 mb-3">
+        <!-- Centered Form -->
+        <div class="card mt-3 rounded-lg" style="width: 100%; ">
+          <img class="card-img-top " src="<%=car.carImages%>" alt="Card image cap">
+        </div>
+
+        <div class="card mt-3 rounded-lg shadow " style="width: 100%;">
+          <div class="card-body">
+            <div class="row">
+              <!-- Left Side -->
+              <h5 class="card-title">Car Overview</h5>
+              <div class="col-md-6">
+                <p>Registration Year: 2020</p>
+                <p>Insurance Validity: No Insurance</p>
+                <p>Fuel Type: Diesel</p>
+                <p>Seats: 7 Seats</p>
+                <p>Kms Driven: 60,000 Kms</p>
+              </div>
+
+              <!-- Right Side -->
+              <div class="col-md-6">
+
+                <p>RTO: KA05</p>
+                <p>Ownership: First Owner</p>
+                <p>Engine Displacement: 2179 cc</p>
+                <p>Transmission: Manual</p>
+                <p>Year of Manufacture: 2020</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card mt-3 shadow " style="width: 100%;">
+          <div class="card-body">
+            <h2>Know More about <%=car.model%></h2>
+            <div class="col-lg-6 mb-5">
+              <div class="d-flex align-items-start">
+                <div class="flex-shrink-0">
+                  <div class="p-1  rounded">
+                    <i class="fa-regular fa-file-image fa-2x"></i>
+                  </div>
+                </div>
+                <div class="flex-grow-1 ms-4 mt-2">
+                  <p class="fw-bold mb-1">Request Car Documents</p>
+                  <p class="text-muted mb-1">
+                    All the documents are genuine documents posted by the  car owner.
+                  </p>
+                  <a href=""><button type="button" class="btn btn-outline-success">Request Documents</button></a>
+                  <button type="button" class="btn btn-outline-info">Info</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-</div>
+
+      <!-- Right div -->
+      <div class="col-md-4 rounded">
+        <div class="position-sticky" style="top: 50px;">
+          <div class="card mt-3 rounded-lg shadow">
+            <div class="card-body">
+              <!-- Location -->
+              <div class=" p-1 rounded mb-3">
+                <small class="card-title">
+                  <i class="fas fa-sharp fa-thin fa-location-dot px-2"></i><%=car.registration_state%>
+                </small>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <h1><%=car.brand%></h1>
+                <!-- Certified Badge -->
+                <div class="d-flex justify-content-center align-items-center p-2 rounded-lg mb-1 mt-1 border w-25">
+                  <i class="fas fa-check-circle text-success"></i>
+                  <span class="ms-2">Certified</span>
+                </div>
+                <div class="d-flex justify-content-center align-items-center p-2 rounded-lg mb-1 mt-1 border w-25">
+                  <i class="fas fa-thin fa-circle-xmark text-black"></i>
+                  <span class="ms-2">Not Verified </span>
+                </div>
+              </div>
+
+
+
+              <small><%=car.odometer%>kms - <%=car.fuel_type%> - <%=car.ownership%></small>
+
+
+
+              <p class="mt-2"><span class="bg-light p-1">Price: </span><strong> Rs.<%= car.price %></strong></p>
+              <!-- Price -->
+
+              <!-- View Seller Details Button -->
+              <div class="d-flex justify-content-center align-items-center">
+                <a href="/sellerProfile/<%=car.userId%>" class="btn btn-primary">View Seller Details</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <%- include('../partials/scripts.ejs') %>
+
 </body>
 
-<%- include('../partials/scripts.ejs') %>
 
 </html>
+
+<!-- carousel code -->
+<!-- <div class="card " style="width: 700px;">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active  justify-content-center align-items-center">
+        <img src="<%=car.carImages%>" class="d-block h-100" alt="...">
+      </div>
+      <div class="carousel-item  justify-content-center align-items-center">
+        <img src="<%=car.carImages%>" class="d-block h-100" alt="...">
+      </div>
+      <div class="carousel-item  justify-content-center align-items-center">
+        <img src="<%=car.carImages%>" class="d-block h-100" alt="...">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <i class="fas fa-chevron-left  bg-dark rounded-circle "></i> 
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <i class="fas fa-chevron-right  bg-dark rounded-circle"></i> 
+      <span class="sr-only">Next</span>
+    </a>
+    
+  </div>
+</div> -->

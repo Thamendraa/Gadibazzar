@@ -30,7 +30,7 @@ router.route("/resetPassword").get(uc.renderResetPassword).post(uc.resetPassword
 //Route addCar(sellCar)
 router.route("/sellCar")
   .get(isAuthenticated.isAuthenticated,hc.renderAddCar)
-.post(upload,hc.sellCar)
+.post(upload,isAuthenticated.isAuthenticated,hc.sellCar)
 
 //Profile
 router.route("/profile").get(isAuthenticated.isAuthenticated,hc.renderProfile)
@@ -40,14 +40,16 @@ router.route("/kyc").get(isAuthenticated.isAuthenticated,uc.renderKYC)
 .post(kycUpload,isAuthenticated.isAuthenticated, uc.kycRegister)
 
 //myCarList
-router.route("/myCarlist").get(isAuthenticated.isAuthenticated,hc.renderMyCarsList)
+router.route("/myCarlist/:id").get(isAuthenticated.isAuthenticated,hc.renderMyCarsList)
 
 //requestDocs
 router.route("/userRequestDocs").get(isAuthenticated.isAuthenticated,hc.renderUserRequestDocs)
 
 //viewSingleCar
-router.route("/singleCarView/:id").get(isAuthenticated.isAuthenticated,hc.renderViewCar)
+router.route("/singleCarView/:id").get(isAuthenticated.isAuthenticated,hc.renderViewCar)//
 
+//view seller details
+router.route('/sellerProfile/:userId').get(isAuthenticated.isAuthenticated,hc.renderSellerProfile)
 
 //************************************************ADMIN************************************** */
 router.route("/admin").get(ad.renderAdminHome)
