@@ -1,21 +1,23 @@
 
   <link rel="stylesheet" type="text/css" href="/CSS/sideBar.css">
 
-<body>
       <div class="sidebar">
         <div class="profile">
-          <img src="/images/profilejpg.jpg" alt="Profile Picture">
-          <h4>John Doe</h4>
-          <p>123 Main St, City, Country</p>
-          <p><i class="fas fa-check-circle verified"></i> Verified</p>
+          <% if (isKycVerified) { %>
+            <img src="<%= user.kyc.userImage %>" alt="Profile Picture">
+            <h4><%= user.kyc.full_name %></h4>
+            <p><i class="fas fa-check-circle verified"></i> Verified</p>
+            <% } else { %>
+            <img src="/images/profilejpg.jpg" alt="Profile Picture">
+            <h4><%= user.name %></h4>
+            <p><i class=" fas fa-regular fa-circle-xmark"></i>Not Verified.</p>
         </div>
-        <div class="mt-5 ">
-          <a href="/profile" class="sidebar-link"><i class=" fas fa-info"></i></i><span>My Information</span></a>
-          <a href="/myCarList/<%=user.id%>" class="sidebar-link"><i class="fas fa-car"></i> <span>My Vehicles</span></a>
-          <a href="/userRequestDocs" class="sidebar-link"><i class="fas fa-file-alt"></i> <span>Request for Docs</span></a>
-          <a href="#" class="sidebar-link"><i class="fas fa-file-alt"></i> <span>Request for Docs</span></a>
-          <a href="#" class="sidebar-link"><i class="fas fa-car"></i> <span>My Vehicles</span></a>
-          <a href="#" class="sidebar-link"><i class="fas fa-file-alt"></i> <span>Request for Docs</span></a>
+        <% } %>
+        <div class="mt-5 md-5 px-3">
+          <a href="/profile" class="sidebar-link rounded-pill"><i class=" fas fa-info"></i></i><span>My Information</span></a>
+          <a href="/myCarList/<%=user.id%>" class="sidebar-link rounded-pill"><i class="fas fa-car"></i> <span>My Vehicles</span></a>
+          <a href="/userRequestDocs/<%=user.id%>" class="sidebar-link rounded-pill"><i class="fas fa-file-alt"></i> <span>Request for Docs</span></a>
+          <a href="#" class="sidebar-link rounded-pill"><i class="fas fa-file-alt "></i> <span>Mechanic Evaluation </span></a>
         </div>
       </div>
  

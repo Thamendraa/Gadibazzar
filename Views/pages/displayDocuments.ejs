@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('../partials/headerIndex.ejs') %>
+</head>
+
+
+<body>
+  <%- include('../partials/navbarIndex.ejs') %>
+  <div class="row justify-content-center mt-5 ">
+    <!-- Left div -->
+    <div class="col-md-5 mb-3 mt-3">
+      <!-- Centered Form -->
+      <div class="card mt-3 rounded-lg" style="width: 100%; ">
+        <img class="card-img-top " src="<%=car.carImages%>" alt="Card image cap">
+      </div>
+
+      <div class="card mt-3 rounded-lg shadow " style="width: 100%;">
+        <div class="card-body">
+          <div class="row">
+            <!-- Left Side -->
+            <h5 class="card-title">Car Overview</h5>
+            <div class="col-md-6">
+              <p>Registration Year: <%=car.model_year%></p>
+              <p>Insurance Validity: No Insurance</p>
+              <p>Fuel Type: <%=car.fuel_type%></p>
+              <p>Seats: <%=car.seat_number%></p>
+              <p>Kms Driven: <%=car.odometer%></p>
+            </div>
+
+            <!-- Right Side -->
+            <div class="col-md-6">
+
+              <p>RTO: <%=car.registration_state%></p>
+              <p>Ownership: <%=car.ownership%></p>
+              <p>Engine Displacement: <%=car.engin_description%></p>
+              <p>Transmission: <%=car.transmission_type%></p>
+              <p>Year of Manufacture: <%=car.model_year%></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-3 shadow " style="width: 100%;">
+        <div class="card-body">
+          <h2>Know More about <%=car.model%></h2>
+          <div class="col-lg-4 mb-1">
+           
+              
+             
+                  <% if (car) { %>
+                 <div class="card">
+                  <a href="<%= car.carDocsImages %>" data-toggle="lightbox" data-gallery="example-gallery" class="card-img-top" >
+                    <img src="<%= car.carDocsImages %>" class="img-fluid">
+                  </a>
+                </div>
+                <div class="card">
+                  <a href="<%= car.carDocsImages %>" data-toggle="lightbox" data-gallery="example-gallery" class="card-img-top" >
+                    <img src="<%= car.carDocsImages %>" class="img-fluid">
+                  </a>
+                </div>
+                  <% } else { %>
+                    <div class="col-md-7 mt-5 border ">
+                      <div class="card">
+                         <img src="img/card.jpg" class="card-img-top" alt="...">
+                         <div class="card-img-overlay">
+                           <h5 class="card-title text-danger">You don't Have any access to this Images</h5>
+                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                         </div>
+                       </div>
+                       </div>
+                       <% } %>
+             
+          
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right div -->
+    <div class="col-md-4 rounded mt-3">
+      <div class="position-sticky" style="top: 70px;">
+        <div class="card mt-3 rounded-lg shadow">
+          <div class="card-body">
+            <!-- Location -->
+            <div class=" p-1 rounded mb-3">
+              <small class="card-title">
+                <i class="fas fa-sharp fa-thin fa-location-dot px-2"></i><%=car.registration_state%>
+              </small>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <h1><%=car.brand%></h1>
+              <!-- Certified Badge -->
+              <div class="d-flex justify-content-center align-items-center p-2 rounded-lg mb-1 mt-1 border w-25">
+                <i class="fas fa-check-circle text-success"></i>
+                <span class="ms-2">Certified</span>
+              </div>
+              <div class="d-flex justify-content-center align-items-center p-2 rounded-lg mb-1 mt-1 border ">
+                <i class="fas fa-thin fa-circle-xmark text-black"></i>
+                <span class="ms-2">Not Verified </span>
+              </div>
+            </div>
+
+
+
+            <small><%=car.odometer%>kms - <%=car.fuel_type%> - <%=car.ownership%></small>
+
+
+
+            <p class="mt-2"><span class="bg-light p-1">Price: </span><strong> Rs.<%= car.price %></strong></p>
+            <!-- Price -->
+
+            <!-- View Seller Details Button -->
+            <div class="d-flex justify-content-center align-items-center">
+              <a href="/sellerProfile/<%=car.userId%>" class="btn btn-primary">View Seller Details</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  
+     
+
+
+
+  
+
+  <%- include('../partials/scripts.ejs') %>
+
+</body>
+
+
+
+</html>
+

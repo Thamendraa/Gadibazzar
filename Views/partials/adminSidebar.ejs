@@ -1,0 +1,40 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+ 
+    <div class="card d-flex align-items-center">
+        
+       
+            <img src="/images/bgGadiBazzar.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Admin</h5>
+        </div>
+      
+      </div><!-- End Card with an image on top -->
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link <%= active=="Dashboard"?"":"collapsed" %>" href="/index">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <%= active=="Kyc Request"?"":"collapsed" %>" href="/verifyKyc">
+          <i class="bi bi-person-lines-fill"></i>
+          <span>KYC Request</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <%= active=="Mechanics"?"":"collapsed" %>" href="/adminMechanicList">
+          <i class="bi bi-person-fill-gear"></i>
+          <span> Mechanics </span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->

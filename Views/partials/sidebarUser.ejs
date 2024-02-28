@@ -1,0 +1,57 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar " >
+    
+    <div class="card d-flex align-items-center">
+        <% if (isKycVerified) { %>
+        <img src="<%= user.kyc.userImage %>" class="card-img-top rounded-circle " style="width: 100px; height: 100px;"alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= user.kyc.full_name %></h5>
+          <p class="card-text"><i class="bi bi-patch-check "></i> Verified</p>
+        </div>
+        <% } else { %>
+            <img src="/images/profilejpg.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= user.name %><</h5>
+          <p class="card-text"><i class="bi bi-patch-exclamation "></i> Not Verified</p>
+        </div>
+        <% } %>
+      </div><!-- End Card with an image on top -->
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link <%= active=="Profile"?"":"collapsed" %>" href="/profile">
+          <i class="bi bi-info-lg"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <%= active ==="My Cars"?"":'collapsed' %>" href="/myCarList/<%=user.id%>">
+          <i class="bi bi-car-front-fill"></i>
+          <span>My Cars</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <%= active ==="Request for Document"?"":"collapsed"%>" href="/userRequestDocs/<%=user.id%>">
+          <i class="bi bi-envelope"></i>
+          <span>Request for Documents</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link <%= active ==="My Request Document"?"":"collapsed"%>" href="/myRequest/<%=user.id%>">
+          <i class="bi bi-envelope"></i>
+          <span>My Request </span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <%= active ==="Mechanic Inspection"?"":"collapsed"%>" href="pages-register.html">
+          <i class="bi bi-clipboard-data"></i>
+          <span>Mechanic Inspection</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->

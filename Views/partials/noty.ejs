@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/noty@3.1.4/lib/noty.js"></script>
+    <% if (message.success) { %>
+        <script>
+            new Noty({
+                type: 'success',
+                theme: 'sunset',
+                text: '<%=message.success%>',
+                timeout: 4000,
+                
+            }).show();
+        </script>
+    <% }%>
+    <% if (message.failure) { %>
+        <script>
+            new Noty({
+                type: 'error',
+                theme: 'sunset',
+                text: '<%=message.failure%>',
+                timeout: 4000,
+            }).show();
+        </script>
+    <% }%>

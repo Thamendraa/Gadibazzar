@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       gender:{
         type :DataTypes.STRING,
-        allowNull:false,
+        allowNull:true,
       },
       password: {
         type: DataTypes.STRING,
@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       otp: {
         type: DataTypes.INTEGER,
         allowNull: true,
+      },
+      role: {
+        type: DataTypes.ENUM('admin', 'mechanic','user'),
+        allowNull: false,
+        defaultValue:'user',
       },
     });
     return User;

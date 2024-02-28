@@ -1,0 +1,142 @@
+
+
+
+<%- include('../partials/headerIndex.ejs') %>
+
+<body>
+
+    <%- include('../partials/adminNavbar.ejs') %>
+    <%- include('../partials/adminSidebar.ejs') %>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1> Add Mechanics</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index">Home</a></li>
+          <li class="breadcrumb-item"><a href="adminMechanicList">Mechanics</a></li>
+          <li class="breadcrumb-item active"> Add Mechanic</li>
+        </ol>
+      </nav>
+    </div>
+
+    
+    <div class="card px-4">
+        <div class="card-body">
+          <form  action="/adminAddmechanics" method="post" enctype="multipart/form-data">
+            <div class="row g-3 mt-3">
+            <div class="col-md-4">
+                <label for="full_name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="full_name" placeholder="">
+            </div>
+            <div class="col-md-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="text" class="form-control" name="age">
+            </div>
+            <div class="col-md-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select name="gender" class="form-select">
+                    <option selected></option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                </select>
+            </div>
+            <div class="col-md-4 ">
+                <label for="Address" class="form-label">Address</label>
+                <input type="text" class="form-control" name="address" >
+            </div>
+            
+            <div class="col-md-3 ">
+                <label for="phone_number" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" name="phone_number">
+            </div>
+            <div class="col-md-3 ">
+                <label for="experience_year" class="form-label">Years of Experience</label>
+                <input type="text" class="form-control" name="experience_year">
+            </div>
+           
+            <div class="col-md-3">
+                <label for="avaibilityCity" class="form-label">Avaibility City</label>
+                <select name="avaibilityCity" class="form-select">
+                    <option selected>Iathari</option>
+                    <option>Dharan</option>
+                    <option>Birtanagar</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="avaibilityTime" class="form-label">Avaibility Time</label>
+                <select name="avaibilityTime" class="form-select">
+                    <option selected>Full Time</option>
+                    <option>Part Time</option>
+                   
+                </select>
+            </div>
+           </div>
+
+           <div class="row mt-3">
+              <!-- image of the car -->
+          <div class="col-md-5 ">
+            <label for="mechnaicImage" class="form-label">Mechanic Image</label>
+            <input type="file" name="mechanicImage" class="form-control" id="mechanicImage" >
+            <small class="text-muted">You can upload single images. Accepted formats: JPG, JPEG, PNG.</small>
+        </div>
+            <div class="col-md-5">
+            <label for="mechanicIdenty" class="form-label">Mechanic Identity Image</label>
+            <input type="file" name="mechanicIdenty" class="form-control" id="mechanicIdenty" multiple>
+            <small class="text-muted"> Accepted formats: JPG, JPEG, PNG.</small>
+             </div>
+             </div>
+
+             <div class="row g-3 mt-4 mb-3 border ">
+            <h6 class="text-muted">Set the mechanic cerdenctials</h6>
+            <div class="col-md-4 mb-3">
+                <label for="email" class="form-label"> Mechanic Email Address</label>
+                <input type="email" class="form-control" name="email">
+            </div>
+            <div class="col-md-4">
+              <label for="password" class="form-label">Set Password</label>
+              <input type="password" class="form-control" name="password">
+          </div>
+         
+        
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+        </form>
+        </div>
+      </div>
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>GadiBazzar</span></strong>
+    </div>
+   
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 
+  <script src="/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/vendor/tinymce/tinymce.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+

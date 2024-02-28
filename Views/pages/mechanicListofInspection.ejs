@@ -1,0 +1,223 @@
+
+
+
+<%- include('../partials/headerIndex.ejs') %>
+
+<body>
+
+    <%- include('../partials/mechanicNavbar.ejs') %>
+    <%- include('../partials/mechanicSidebar.ejs') %>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Request For Inspection</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="mechanicDashboard">Home</a></li>
+          <li class="breadcrumb-item active">Requests</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+      
+        <h5 class="card-title">My Request</h5>
+
+        <!-- Bordered Tabs -->
+        <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-home" type="button" role="tab" aria-controls="home" aria-selected="true">Request</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">To be</button>
+          </li>
+        </ul>
+       
+        <div class="tab-content pt-3" id="borderedTabContent">
+          
+          <div class="tab-pane fade show active" id="bordered-home" role="tabpanel" aria-labelledby="home-tab">
+                      <table class="table align-middle mb-0 bg-white">
+                        <thead>
+                          <tr>
+                            <th scope="col">
+                                Image
+                            </th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Avaibility</th>
+                            <th scope="col">Avaibility City</th>
+                            
+                            <th scope="col">Start Date</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <% appointments.forEach(appointment => { %>
+                          <% if (appointment.inspection_request === 'pending') { %>
+                            
+                          <tbody>
+                              <tr class=" text-align-center">
+                                  <td>
+
+                                      <img src="<%= appointment.car.carImages %>"
+                                          alt=""
+                                          style="width: 100px; height: 100px"
+                                         class="border" />
+                                  </td>
+                                  <td>
+                                      <p class="fw-bold mb-1">
+                                          <%= appointment.car.brand %>
+                                      </p>
+                                      <p class="text-muted mb-0">
+                                          john.doe@gmail.com</p>
+
+
+                                  </td>
+                                  <td>
+                                      <p class="fw-normal mb-1">Requested At
+                                      </p>
+                                      <p class="text-muted mb-0">IT department
+                                      </p>
+                                  </td>
+                                  <td>
+                                      <span
+                                          class="badge badge-success rounded-pill d-inline">Verified</span>
+                                  </td>
+                                  
+                                  <td>
+                                    <form action="/accpectInspectionRequest/<%= appointment.carId%>" method="post">
+    
+                                      <button class="btn btn-primary">
+                                        <i class="fas fa-check"></i> yes
+                                      </button>
+                                  </form>
+                                      </td>
+                                  
+                              </tr>
+                          </tbody>
+                          <% } %>
+                          <% }) %>
+                      </table>
+                  </div>
+                  
+                  <div class="tab-pane fade" id="bordered-profile" role="tabpanel" aria-labelledby="profile-tab">
+                      <table class="table align-middle mb-0 bg-white">
+                        <thead>
+                          <tr>
+                            <th scope="col">
+                                Image
+                            </th>
+                            <th scope="col">Prefed Date</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Requested Date</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <% appointments.forEach(appointment => { %>
+                          <% if (appointment.inspection_request === 'accepted') { %>
+                          <tbody>
+                              <tr class=" text-align-center">
+                                  <td>
+
+                                      <img src="<%= appointment.car.carImages %>"
+                                          alt=""
+                                          style="width: 100px; height: 100px"
+                                         class="border" />
+                                  </td>
+                                  <td>
+                                      <p class="fw-bold mb-1">
+                                          <%= appointment.prefed_date %>
+                                      </p>
+                                     
+
+                                  </td>
+                                  <td>
+                                      <p class="fw-normal mb-1"><%= appointment.current_city %>
+                                      </p>
+                                      <p class="text-muted mb-0"><%= appointment.address %>
+                                      </p>
+                                  </td>
+                                  <td>
+                                    <p class="fw-normal mb-1"><%= appointment.createdAt %>
+                                    </p>
+                                    <p class="text-muted mb-0"><%= appointment.address %>
+                                    </p>
+                                </td>
+                                  
+                                  <td>
+                                            <a href="/mechanicInspectionReport">
+          <button class="btn btn-primary">
+            <i class="fas fa-check"></i> Make Inspection Report
+          </button>
+          </a>
+   
+                                      </a>
+                                      </td>
+                                    
+                                  
+                              </tr>
+                          </tbody>
+                          <% } %>
+                          <% }) %>
+                      </table>
+                  </div>
+                
+              </div>
+              
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>GadiBazzar</span></strong>
+    </div>
+   
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 
+  <script src="/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/vendor/tinymce/tinymce.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+

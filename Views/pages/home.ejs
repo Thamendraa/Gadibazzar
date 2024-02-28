@@ -2,16 +2,16 @@
 <html>
 
 <head>
-  <%- include('../partials/header.ejs') %>
+  <%- include('../partials/headerIndex.ejs') %>
 </head>
 <body>
-  <%- include('../partials/navbar.ejs') %>
+  <%- include('../partials/navbarIndex.ejs') %>
   
-  <div class="container-fluid mt-3 mb-3">
+  <div class="container mt-3 mb-3">
     <div class="row d-flex align-items-center">
       <div class="col-md-12 ">
         <!-- Carousel Container -->
-        <div id="carouselContainer" class="carousel slide  justify-content-center align-items-center" data-ride="carousel">
+        <!-- <div id="carouselContainer" class="carousel slide  justify-content-center align-items-center" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselContainer" data-slide-to="0" class="active"></li>
             <li data-target="#carouselContainer" data-slide-to="1"></li>
@@ -49,86 +49,226 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-        
+         -->
       </div>
     </div>
     <div class="row">
       <div class="col-md-2 mt-5">
-        <!-- Filters Section -->
+        <div class="d-flex py-2  align-items-center">
+          <i class=" fas fa-regular fa-filter px-3 py-2"></i><p>Filters</p>
+        </div>
         <!-- Filter 1 -->
-        <div id="filterContainer1" class="card">
-          <div class="card-header d-flex justify-content-between">
-            <p>Filter 1</p>
-            <button id="toggleFilter1" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
-          </div>
+        <div id="filterContainer1" class="card" style="border-radius: 15px;">
+          <div class="card-header d-flex justify-content-between align-items-center py-1" style="background-color: #FFA500;border-radius: 15px;">
+            <p style="margin-bottom: 0;">Categories</p>
+            <!-- Decrease button height by adjusting font size -->
+            <button id="toggleFilter1" class="btn btn-link" style="font-size: 0.75rem;"><i class="fas fa-chevron-down fa-1"></i></button>
+        </div>        
           <div id="filterContent1">
             <form>
               <div class="card-body">
                 <div class="form-group">
-                  <label for="option1">Option 1</label>
-                  <input type="radio" id="option1" name="filterOption">
+                  <input type="radio" id="option1" name="allCars">
+                  <label for="option1">All Cars</label>
                 </div>
                 <div class="form-group">
-                  <label for="option2">Option 2</label>
-                  <input type="radio" id="option2" name="filterOption">
-                </div>
-                <div class="form-group">
-                  <label for="option3">Option 3</label>
-                  <input type="radio" id="option3" name="filterOption">
+                  <input type="radio" id="option2" name="certifiedCars">
+                  <label for="option2">Certified Cars</label>
                 </div>
               </div>
             </form>
           </div>
         </div>
         <!-- Filter 2 -->
-        <div id="filterContainer2" class="card mt-3">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <p>Filter 2</p>
-            <button id="toggleFilter2" class="btn btn-link"><i class="fas fa-chevron-down"></i></button>
-          </div>
+        <div id="filterContainer2" class="card mt-2" style="border-radius: 15px;">
+          <div class="card-header d-flex justify-content-between align-items-center py-1" style="background-color: #FFA500;border-radius: 15px;">
+            <p style="margin-bottom: 0;">Brand</p>
+            <!-- Decrease button height by adjusting font size -->
+            <button id="toggleFilter2" class="btn btn-link" style="font-size: 0.75rem;"><i class="fas fa-chevron-down fa-1"></i></button>
+        </div>        
           <div id="filterContent2">
             <form>
               <div class="card-body">
                 <div class="form-group">
-                  <label for="option4">Option 4</label>
-                  <input type="radio" id="option4" name="filterOption2">
+                  <input type="radio" id="suzuki" name="carBrand" value="suzuki">
+                  <label for="suzuki">Suzuki</label>
+              </div>
+              <div class="form-group">
+                  <input type="radio" id="toyota" name="carBrand" value="toyota">
+                  <label for="toyota">Toyota</label>
+              </div>
+              <div class="form-group">
+                  <input type="radio" id="honda" name="carBrand" value="honda">
+                  <label for="honda">Honda</label>
+              </div>
+              <div class="form-group">
+                  <input type="radio" id="hyundai" name="carBrand" value="hyundai">
+                  <label for="hyundai">Hyundai</label>
+              </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--3rdfilter-->
+        <div id="filterContainer3" class="card mt-2" style="border-radius: 15px;">
+          <div class="card-header d-flex justify-content-between align-items-center py-1" style="background-color: #FFA500;border-radius: 15px;">
+            <p style="margin-bottom: 0;">Budget</p>
+            <!-- Decrease button height by adjusting font size -->
+            <button id="toggleFilter3" class="btn btn-link" style="font-size: 0.75rem;"><i class="fas fa-chevron-down fa-1"></i></button>
+        </div>        
+          <div id="filterContent3">
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <input type="radio" id="suzuki" name="carBrand" value="suzuki">
+                  <label for="suzuki">Suzuki</label>
+              </div>
+              <div class="form-group">
+                  <input type="radio" id="toyota" name="carBrand" value="toyota">
+                  <label for="toyota">Toyota</label>
+              </div>
+              <div class="form-group">
+                  <input type="radio" id="honda" name="carBrand" value="honda">
+                  <label for="honda">Honda</label>
+              </div>
+              <div class="form-group">
+                  <input type="radio" id="hyundai" name="carBrand" value="hyundai">
+                  <label for="hyundai">Hyundai</label>
+              </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- 4 Filters Section -->
+        <div id="filterContainer4" class="card mt-2" style="border-radius: 15px;">
+          <div class="card-header d-flex justify-content-between align-items-center py-1" style="background-color: #FFA500;border-radius: 15px;">
+            <p style="margin-bottom: 0;">Ownership</p>
+            <!-- Decrease button height by adjusting font size -->
+            <button id="toggleFilter4" class="btn btn-link" style="font-size: 0.75rem;"><i class="fas fa-chevron-down fa-1"></i></button>
+        </div>        
+          <div id="filterContent4">
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <input type="radio" id="option1" name="firstOwner">
+                  <label for="option1">first owner</label>
                 </div>
                 <div class="form-group">
-                  <label for="option5">Option 5</label>
-                  <input type="radio" id="option5" name="filterOption2">
-                </div>
-                <div class="form-group">
-                  <label for="option6">Option 6</label>
-                  <input type="radio" id="option6" name="filterOption2">
+                  <input type="radio" id="option2" name="secondOwner">
+                  <label for="option2">Second Owner </label>
                 </div>
               </div>
             </form>
           </div>
         </div>
-        <!-- End of Filters Section -->
+        <!-- 5 Filters Section -->
+        <div id="filterContainer5" class="card mt-2" style="border-radius: 15px;">
+          <div class="card-header d-flex justify-content-between align-items-center py-1" style="background-color: #FFA500;border-radius: 15px;">
+            <p style="margin-bottom: 0;">Model year</p>
+            <!-- Decrease button height by adjusting font size -->
+            <button id="toggleFilter5" class="btn btn-link" style="font-size: 0.75rem;"><i class="fas fa-chevron-down fa-1"></i></button>
+        </div>        
+          <div id="filterContent5">
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <input type="radio" id="option1" name="allCars">
+                  <label for="option1">2000-2010</label>
+                </div>
+                <div class="form-group">
+                  <input type="radio" id="option2" name="certifiedCars">
+                  <label for="option2">2010-2020</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--6ilters Section -->
+        <div id="filterContainer6" class="card mt-2" style="border-radius: 15px;">
+          <div class="card-header d-flex justify-content-between align-items-center py-1" style="background-color: #FFA500;border-radius: 15px;">
+            <p style="margin-bottom: 0;">Fuel type</p>
+            <!-- Decrease button height by adjusting font size -->
+            <button id="toggleFilter6" class="btn btn-link" style="font-size: 0.75rem;"><i class="fas fa-chevron-down fa-1"></i></button>
+        </div>        
+          <div id="filterContent6">
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <input type="radio" id="option1" name="petrol">
+                  <label for="option1">Petrol</label>
+                </div>
+                <div class="form-group">
+                  <input type="radio" id="option2" name="diesel">
+                  <label for="option2">Diesel</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--7Filters Section -->
+        <div id="filterContainer7" class="card mt-2" style="border-radius: 15px;">
+          <div class="card-header d-flex justify-content-between align-items-center py-1" style="background-color: #FFA500;border-radius: 15px;">
+            <p style="margin-bottom: 0;">Transmission</p>
+            <!-- Decrease button height by adjusting font size -->
+            <button id="toggleFilter7" class="btn btn-link" style="font-size: 0.75rem;"><i class="fas fa-chevron-down fa-1"></i></button>
+        </div>        
+          <div id="filterContent7">
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <input type="radio" id="option1" name="maual">
+                  <label for="option1">Manual</label>
+                </div>
+                <div class="form-group">
+                  <input type="radio" id="option2" name="automatic">
+                  <label for="option2">Automatic</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--7Filters Section -->
       </div>
-      <div class="col-md-9 mb-3 mt-5">
+      <div class="col-md-9 mb-3 mt-5 px-2">
         <!-- Content Section -->
         <div class="row">
           <!-- Loop through cars data to display cards -->
           <% cars.forEach(car => { %>
-            <div class="col-md-3 mt-3">
-              <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="<%=car.carImages%>" alt="Card image cap" style="height: 200px; ">
-                <div class="card-body">
-                  <h5 class="card-title"><%=car.brand %></h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="/singleCarView/<%- car.id %>" class="btn btn-primary">View Car</a>
+          
+            <div class="col-md-4 mt-4">
+                <div class="card card-hover shadow border" style="width: 16rem;">
+                    <img class="card-img-top " src="<%=car.carImages%>" alt="Card image cap"  style="height: 200px;" >
+                    <div class="card-body">
+                        <h5 class="card-title"><%=car.model %></h5>
+                        <!-- Display car province below brand -->
+                        <%=car.registration_state%><i class="fas fa-sharp fa-thin fa-location-dot px-3"></i>
+                        <!-- Display price for car below brand -->
+                        <div class="mt-2 d-flex justify-content-between align-items-center">
+                          <h5>Rs. <%=car.price %></h5>
+                          <div class="d-flex justify-content-center align-items-center p-1  mb-1 mt-1 border w-5" style="background-color: #ffffff; border-radius: 15px;">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <!-- Add inline styles for white and bold text -->
+                            <span class="ms-2 px-2" style="color: rgb(0, 0, 0); font-weight: bold;">Certified</span>
+                        </div>
+                        
+                        
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center mt-2 ">
+                          <!-- Button with inline style for orange color -->
+                          <a href="/singleCarView/<%- car.id %>" class="btn btn-outline-warning" style="border-color: #FFA500; width: 75%;">View Car</a>
+                      </div>
+                      
+                      
+                    </div>
                 </div>
-              </div>
             </div>
-          <% }) %>
-          <!-- End of loop -->
-        </div>
-        <!-- End of Content Section -->
+        <% }) %>
+       
       </div>
     </div>
   </div>
+  
   <%-include('../partials/scripts.ejs') %>
   <script>
      $(document).ready(function(){
@@ -148,6 +288,18 @@
     $('#filterContent4').toggle();
     $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
   });
+  $('#toggleFilter5').click(function(){
+    $('#filterContent5').toggle();
+    $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+  });
+  $('#toggleFilter6').click(function(){
+    $('#filterContent6').toggle();
+    $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+  });
+  $('#toggleFilter7').click(function(){
+    $('#filterContent7').toggle();
+    $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+  });
   });
 
   
@@ -159,6 +311,25 @@
 
       console.log('Slide Event Occurred');
     });
+    
+    document.addEventListener("DOMContentLoaded", function() {
+  const cards = document.querySelectorAll(".card-hover");
+
+  cards.forEach(card => {
+    card.addEventListener("mouseenter", function() {
+      this.style.transform = "scale(1.05)";
+      this.style.transition = "transform 0.3s ease";
+      this.style.boxShadow = "0 0 20px rgba(0, 0, 0, 0.2)";
+    });
+
+    card.addEventListener("mouseleave", function() {
+      this.style.transform = "scale(1)";
+      this.style.transition = "transform 0.3s ease";
+      this.style.boxShadow = "none";
+    });
+  });
+});
   </script>
+   
 </body>
 </html>

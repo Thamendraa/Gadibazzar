@@ -2,110 +2,188 @@
 <html>
 
 <head>
-    <%- include('../partials/header.ejs') %>
+    <%- include('../partials/headerIndex.ejs') %>
+    
 </head>
 
 
 <body>
-    <%- include('../partials/navbar.ejs') %>
-<div class="container-fluid">
+    <%- include('../partials/navbarIndex.ejs') %>
+    <div class="container-fluid">
 
-    <!-- Centered Form -->
-    <div class="container d-flex align-items-center justify-content-center" style="min-height: 90vh;">
-        <form class="row g-4" action="/sellCar" method="post" enctype="multipart/form-data">
-        <div class="col-md-3 mb-3">
-            <label for="registration_state" class="form-label">Registration State</label>
-            <select name="registration_state" class="form-select">
-                <option selected>Province</option>
-                <option>Koshi Province</option>
-                <option>Madesh Province</option>
-                <option>Bagmati Province</option>
-                <option>Gandaki Province</option>
-                <option>Lumbini Province</option>
-            </select>
+        <!-- Centered Form -->
+        <div class="container d-flex align-items-center justify-content-center border shadow mt-3"
+            style="min-height: 90vh;">
+            <form class="row g-4" action="/sellCar" method="post"
+                enctype="multipart/form-data">
+                <div class="col-md-3 mb-3">
+                    <label for="registration_state"
+                        class="form-label">Registration State</label>
+                    <select name="registration_state" class="form-select">
+                        <option selected>Province</option>
+                        <option>Koshi Province</option>
+                        <option>Madesh Province</option>
+                        <option>Bagmati Province</option>
+                        <option>Gandaki Province</option>
+                        <option>Lumbini Province</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <% if (validationErrors && validationErrors.brand) { %>
+                    <small class="text-danger"><i
+                            class="fas fa-exclamation-circle px-2"></i>
+                        <%= validationErrors.brand.msg %>
+                    </small><br>
+
+
+
+                    
+                    <% } %><label for="brand"
+                        class="form-label">Brand of the car</label>
+                    <input type="text" class="form-control" name="brand"
+                        placeholder="Brand">
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="model" class="form-label">Model</label>
+                    <input type="text" class="form-control" name="model"
+                        placeholder="Model">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <% if (validationErrors && validationErrors.model_year) { %>
+                    <small class="text-danger"><i
+                            class="fas fa-exclamation-circle px-2"></i>
+                        <%= validationErrors.model_year.msg %>
+                    </small><br>
+
+
+
+                    
+                    <% } %><label for="model_year"
+                        class="form-label">Model Year</label>
+                    <input type="text" class="form-control" name="model_year"
+                        placeholder="Model">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="transmission_type"
+                        class="form-label">Transmission</label>
+                    <select name="transmission_type" class="form-select">
+                        <option selected>Manual</option>
+                        <option>Automatic</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="fuel_type" class="form-label">Fuel Type</label>
+                    <select name="fuel_type" class="form-select">
+                        <option selected>Petrol</option>
+                        <option>Diesel</option>
+                        <option>EV</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <% if (validationErrors && validationErrors.odometer) { %>
+                    <small class="text-danger"><i
+                            class="fas fa-exclamation-circle px-2"></i>
+                        <%= validationErrors.odometer.msg %>
+                    </small><br>
+                    <% } %><label for="odometer"
+                        class="form-label">Odometer</label>
+                    <input type="text" class="form-control" name="odometer">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="engine_description" class="form-label">Engine
+                        Description</label>
+                    <input type="text" class="form-control"
+                        name="engine_description">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="ownership" class="form-label">Ownership</label>
+                    <select name="ownership" class="form-select">
+                        <option selected>First owner</option>
+                        <option>Second owner</option>
+                        <option>Third owner</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="seat_number" class="form-label">Seat</label>
+                    <select name="seat_number" class="form-select">
+                        <option selected>5</option>
+                        <option>8</option>
+                        <option>10</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <% if (validationErrors && validationErrors.price) { %>
+                    <small class="text-danger"><i
+                            class="fas fa-exclamation-circle px-2"></i>
+                        <%= validationErrors.price.msg %>
+                    </small><br>
+                    <% } %>
+                    <label for="price"
+                        class="form-label">Price</label>
+                    <input type="text" class="form-control" name="price">
+                </div>
+                 <!-- image of the car -->
+                 <div class="col-md-5 mb-3">
+                    <label for="carImage" class="form-label">Car Images</label>
+                    <input type="file" name="carImages" class="form-control"
+                        id="carImage" multiple onchange="displaySelectedFiles('carImage', 'carImagePreview')">
+                    <small class="text-muted">You can upload multiple images.
+                        Accepted formats: JPG, JPEG, PNG.</small>
+                    <div id="carImagePreview" class="mt-2"></div>
+                </div>
+                
+                <div class="col-md-5 mb-3">
+                    <label for="carDocsImage" class="form-label">Documents
+                        Images</label>
+                    <input type="file" name="carDocsImages" class="form-control"
+                        id="carDocsImage" multiple onchange="displaySelectedFiles('carDocsImage', 'carDocsImagePreview')">
+                    <small class="text-muted">You can upload multiple images.
+                        Accepted formats: JPG, JPEG, PNG.</small>
+                    <div id="carDocsImagePreview" class="mt-2"></div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"
+                            id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            Check me out
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit"
+                        class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+
         </div>
-        <div class="col-md-3 mb-3">
-            <label for="brand" class="form-label">Brand of the car</label>
-            <input type="text" class="form-control" name="brand" placeholder="Brand">
-        </div>
-    
-        <div class="col-md-3 mb-3">
-            <label for="model" class="form-label">Model</label>
-            <input type="text" class="form-control" name="model" placeholder="Model">
-        </div>
-        <div class="col-md-3 mb-3">
-            <label for="model_year" class="form-label">Model Year</label>
-            <input type="text" class="form-control" name="model_year" placeholder="Model">
-        </div>
-        <div class="col-md-3 mb-3">
-            <label for="transmission_type" class="form-label">Transmission Type</label>
-            <input type="text" class="form-control" name="transmission_type" placeholder="Transmission Type">
-        </div>
-    
-        <div class="col-md-3 mb-3">
-            <label for="fuel_type" class="form-label">Fuel Type</label>
-            <select name="fuel_type" class="form-select">
-                <option selected>Petrol</option>
-                <option>Diesel</option>
-                <option>EV</option>
-            </select>
-        </div>
-        <div class="col-md-3 mb-3">
-            <label for="odometer" class="form-label">Odometer</label>
-            <input type="text" class="form-control" name="odometer">
-        </div>
-        <div class="col-md-3 mb-3">
-            <label for="engine_description" class="form-label">Engine Description</label>
-            <input type="text" class="form-control" name="engine_description">
-        </div>
-        <div class="col-md-3 mb-3">
-            <label for="ownership" class="form-label">Ownership</label>
-            <select name="ownership" class="form-select">
-                <option selected>First owner</option>
-                <option>Second owner</option>
-                <option>Third owner</option>
-            </select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="seat_number" class="form-label">Seat</label>
-          <select name="seat_number" class="form-select">
-              <option selected>5</option>
-              <option>8</option>
-              <option>10</option>
-          </select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="price" class="form-label">Price</label>
-          <input type="text" class="form-control" name="price">
-      </div>
-      <!-- image of the car -->
-      <div class="col-md-5 mb-3">
-        <label for="carImage" class="form-label">Car Images</label>
-        <input type="file" name="carImages" class="form-control" id="carImage" multiple >
-        <small class="text-muted">You can upload multiple images. Accepted formats: JPG, JPEG, PNG.</small>
     </div>
-        <div class="col-md-5 mb-3">
-        <label for="carDocsImage" class="form-label">Documents Images</label>
-        <input type="file" name="carDocsImages" class="form-control" id="carDocsImage"  multiple>
-        <small class="text-muted">You can upload multiple images. Accepted formats: JPG, JPEG, PNG.</small>
-         </div>
-        <div class="col-12 mb-3">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
-                </label>
-            </div>
-        </div>
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-    
-    </div>
-</div>
+    <%- include('../partials/scripts.ejs') %>
+    <script>
+        function displaySelectedFiles(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+            preview.innerHTML = ''; // Clear previous previews
+
+            const files = input.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.maxWidth = '100px'; // Set max width for preview
+                    img.style.marginRight = '5px'; // Add margin between images
+                    preview.appendChild(img);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </body>
-
-<%- include('../partials/scripts.ejs') %>
 
 </html>

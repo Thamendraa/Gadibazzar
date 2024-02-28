@@ -2,69 +2,84 @@
 <html>
 
 <head>
-    <%- include('../partials/header.ejs') %>
-    
+    <%- include('../partials/headerIndex.ejs') %>
 </head>
 
 
 <body>
 
-    <!-- Navbar -->
-  <%- include('../partials/navbar.ejs') %>
+    <%- include('../partials/navbarIndex.ejs') %>
+    <%- include('../partials/sidebarUser.ejs') %>
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <main id="main" class="main">
+        <div class="row justify-content-center">
+            <%- include('../partials/noty') %>
+            <div class="col-md-12 mt-3 mb-5 border">
+                <h1>My cars</h1>
+                <div class="row mt-3">
+                    <% myCars.forEach(myCar => { %>
+                    <div class="col-md-4 mb-3 mt-2">
+                        <div class="card card-hover shadow border"
+                            style="width: 18rem;">
+                            <img class="card-img-top"
+                                src="<%= myCar.carImages %>"
+                                alt="Card image cap" style="height: 200px;">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= myCar.brand %>
+                                </h5>
+                                <!-- Display car province below brand -->
+                                <%= myCar.registration_state %>
+                                <i
+                                    class="fas fa-sharp fa-thin fa-location-dot px-2"></i>
+                                <div class="d-flex justify-content-center align-items-center p-2  mb-1 mt-1 border w-5"
+                                    style="border-radius: 20px;">
+                                    <i
+                                        class="fas fa-check-circle text-success"></i>
+                                    <span class="ms-2">Certified</span>
+                                </div>
+                                <!-- Display price for car below brand -->
+                                <p>Price:
+                                    <%= myCar.price %>
+                                </p>
 
-  <!-- Main Container -->
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-
-      <!-- Sidebar -->
-      <div class="col-md-2">
-        <%- include('../partials/sideBar.ejs') %>
-      </div>
-
-     <!-- Main Content -->
-<!-- Main Content -->
-<!-- <div class="col-md-8 mb-3">
-  <div class="border p-2 shadow">
-      <table id="myTable" class="display">
-          <thead>
-              <tr>
-                  <th>Column 1</th>
-                  <th>Column 2</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>Row 1 Data 1</td>
-                  <td>Row 1 Data 2</td>
-              </tr>
-              <tr>
-                  <td>Row 2 Data 1</td>
-                  <td>Row 2 Data 2</td>
-              </tr>
-          </tbody>
-      </table>
-      
-</div>
-</div> -->
-<div class="col-md-8 mt-3 mb-5 border">
-    <div class="row mt-5">
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="<%=mycar.carImages%>" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+                                <a href="/makeRequestInspectionForm/<%= myCar.id %>"
+                                    class="btn btn-outline-success">Request
+                                    Inspection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
         </div>
-      </div>
-    
-  </div>
-</div>
-<%- include('../partials/scripts.ejs') %>
-<script>
-    new DataTable('#myTable');
-</script>
+        </main>
+    </div>
+    <%- include('../partials/scripts.ejs') %>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll(".card-hover");
+
+            cards.forEach(card => {
+                card.addEventListener("mouseenter", function() {
+                    this.style.transform =
+                    "scale(1.05)";
+                    this.style.transition =
+                        "transform 0.3s ease";
+                    this.style.boxShadow =
+                        "0 0 20px rgba(0, 0, 0, 0.2)";
+                });
+
+                card.addEventListener("mouseleave", function() {
+                    this.style.transform = "scale(1)";
+                    this.style.transition =
+                        "transform 0.3s ease";
+                    this.style.boxShadow = "none";
+                });
+            });
+        });
+    </script>
 </body>
 
 

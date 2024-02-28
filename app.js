@@ -1,5 +1,7 @@
 const express = require("express");
-const routes = require('./Routes/routes');
+const userRoutes = require('./Routes/userRoutes');
+const mechanicRoutes = require('./Routes/mechanicRoutes');
+const adminRoutes = require('./Routes/adminRoutes');
 const app = express();
 const port = 4001;
 const db = require("./Model/index");
@@ -7,6 +9,10 @@ const path = require("path");
 // const isAuthenticated = require("./Middleware/isAuthenticated");
 const dotenv = require("dotenv");
 const session = require("express-session");
+const flash = require('connect-flash');
+
+
+
 app.set("view engine","ejs");
 app.set('views', path.join(__dirname, 'views/pages'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,6 +29,7 @@ app.use(
     })
   );
 
+  app.use(flash());
 app.use(express.urlencoded({ extended: true }));
 
 //DataBase link
@@ -34,9 +41,15 @@ dotenv.config();
 
 
 // Use the routes defined in the separate module
-app.use('/', routes);
-//-----------------------forUploadingImd------------------
-// app.use(express.static(path.join(__dirname, "Uploads/carsDocs")));
+
+//userRoutes
+app.use('/', userRoutes);
+
+//mechanicsRoutes
+app.use(mechanicRoutes);
+
+//adminRoutes
+app.use(adminRoutes);
 
 
 

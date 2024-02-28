@@ -2,17 +2,18 @@
 <html>
 
 <head>
-  <%- include('../partials/header.ejs') %>
+  <%- include('../partials/headerIndex.ejs') %>
 </head>
 
 
 <body>
-  <%- include('../partials/navbar.ejs') %>
+  <%- include('../partials/navbarIndex.ejs') %>
 
-  <div class="container-fluid ">
-    <div class="row justify-content-center  ">
+  <%- include('../partials/noty') %>
+  <div class="container-fluid">
+    <div class="row justify-content-center mt-5 ">
       <!-- Left div -->
-      <div class="col-md-5 mb-3">
+      <div class="col-md-5 mb-3 mt-3">
         <!-- Centered Form -->
         <div class="card mt-3 rounded-lg" style="width: 100%; ">
           <img class="card-img-top " src="<%=car.carImages%>" alt="Card image cap">
@@ -24,54 +25,80 @@
               <!-- Left Side -->
               <h5 class="card-title">Car Overview</h5>
               <div class="col-md-6">
-                <p>Registration Year: 2020</p>
+                <p>Registration Year: <%=car.model_year%></p>
                 <p>Insurance Validity: No Insurance</p>
-                <p>Fuel Type: Diesel</p>
-                <p>Seats: 7 Seats</p>
-                <p>Kms Driven: 60,000 Kms</p>
+                <p>Fuel Type: <%=car.fuel_type%></p>
+                <p>Seats: <%=car.seat_number%></p>
+                <p>Kms Driven: <%=car.odometer%></p>
               </div>
 
               <!-- Right Side -->
               <div class="col-md-6">
 
-                <p>RTO: KA05</p>
-                <p>Ownership: First Owner</p>
-                <p>Engine Displacement: 2179 cc</p>
-                <p>Transmission: Manual</p>
-                <p>Year of Manufacture: 2020</p>
+                <p>RTO: <%=car.registration_state%></p>
+                <p>Ownership: <%=car.ownership%></p>
+                <p>Engine Displacement: <%=car.engin_description%></p>
+                <p>Transmission: <%=car.transmission_type%></p>
+                <p>Year of Manufacture: <%=car.model_year%></p>
               </div>
             </div>
           </div>
         </div>
-
-
         <div class="card mt-3 shadow " style="width: 100%;">
           <div class="card-body">
             <h2>Know More about <%=car.model%></h2>
-            <div class="col-lg-6 mb-5">
+            <div class="col-lg-6 mb-1">
               <div class="d-flex align-items-start">
                 <div class="flex-shrink-0">
-                  <div class="p-1  rounded">
+                  <div class="p-4  rounded">
                     <i class="fa-regular fa-file-image fa-2x"></i>
                   </div>
                 </div>
                 <div class="flex-grow-1 ms-4 mt-2">
                   <p class="fw-bold mb-1">Request Car Documents</p>
                   <p class="text-muted mb-1">
-                    All the documents are genuine documents posted by the  car owner.
+                    All the documents are genuine documents posted by the car owner.
                   </p>
-                  <a href=""><button type="button" class="btn btn-outline-success">Request Documents</button></a>
-                  <button type="button" class="btn btn-outline-info">Info</button>
+                  <div class="d-flex mt-3">
+                    <div class="me-5 ">
+                      <a href="/makeRequest/<%-car.id %>">
+                        <button type="button" class="btn btn-outline-success">RequestDoc</button>
+                      </a>
+                    </div>
+                    <div>
+                      
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-outline-info">Info</button>
+                      
+                      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">Info</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Documents are verifies...
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Understood</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+            
+              </div> 
             </div>
           </div>
         </div>
       </div>
 
       <!-- Right div -->
-      <div class="col-md-4 rounded">
-        <div class="position-sticky" style="top: 50px;">
+      <div class="col-md-4 rounded mt-3">
+        <div class="position-sticky" style="top: 70px;">
           <div class="card mt-3 rounded-lg shadow">
             <div class="card-body">
               <!-- Location -->
@@ -87,7 +114,7 @@
                   <i class="fas fa-check-circle text-success"></i>
                   <span class="ms-2">Certified</span>
                 </div>
-                <div class="d-flex justify-content-center align-items-center p-2 rounded-lg mb-1 mt-1 border w-25">
+                <div class="d-flex justify-content-center align-items-center p-2 rounded-lg mb-1 mt-1 border ">
                   <i class="fas fa-thin fa-circle-xmark text-black"></i>
                   <span class="ms-2">Not Verified </span>
                 </div>

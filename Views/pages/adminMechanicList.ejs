@@ -1,0 +1,104 @@
+
+
+
+<%- include('../partials/headerIndex.ejs') %>
+
+<body>
+
+    <%- include('../partials/adminNavbar.ejs') %>
+    <%- include('../partials/adminSidebar.ejs') %>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Mechanics</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index">Home</a></li>
+          <li class="breadcrumb-item active">Mechanics</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    
+<div class="card border">
+    <div class="d-flex justify-content-end mt-3 px-2">
+     <a href="adminAddMechanics">
+      <button type="button" class="btn btn-primary px-2"><i class="bi bi-person-fill-add"></i> Add Mechanics</button>
+    </a>
+    </div>
+    <div class="card-body">
+    
+       
+      <h5 class="card-title">Mechanics</h5>
+      <!-- Default Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">
+                Image
+            </th>
+            <th scope="col">Name</th>
+            <th scope="col">Avaibility</th>
+            <th scope="col">Avaibility City</th>
+            <th scope="col">Age</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% mechanics.forEach(mechanic => { %>
+          <tr>
+            <td>
+
+                <img src="<%= mechanic.mechanicImage%>"
+                    alt=""
+                    style="width: 80px; height: 80px"
+                    class="rounded-circle" />
+            </td>
+            <td><%= mechanic.full_name%></td>
+            <td><%= mechanic.avaibilityTime%></td>
+            <td><%= mechanic.avaibilityCity%></td>
+            <td><%= mechanic.age%></td>
+            <td>2016-05-25</td>
+            <td class="justify-content-between"><button type="button" class="btn btn-outline-info">View</button>
+                <button type="button" class="btn btn-outline-info">View</button>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <!-- End Default Table Example -->
+    </div>
+  </div>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>GadiBazzar</span></strong>
+    </div>
+   
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 
+  <script src="/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/vendor/tinymce/tinymce.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+

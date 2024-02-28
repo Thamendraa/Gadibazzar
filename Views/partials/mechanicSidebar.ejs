@@ -1,0 +1,40 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+  <div class="card d-flex align-items-center">
+        
+       
+    <img src="/images/default.png" class="card-img-top" alt="...">
+<div class="card-body">
+  <h5 class="card-title">Mechanic Name</h5>
+</div>
+
+</div>
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link <%= active=="Dashboard"?"":"collapsed" %> " href="mechanicDashboard">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link <%= active=="Inspection List"?"":"collapsed" %>" href="mechanicListofInspection">
+          <i class="bi bi-envelope"></i>
+          <span>Inspection Request</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link <%= active=="Inspection Report"?"":"collapsed" %>" href="mechanicInspectionReport">
+          <i class="bi bi-envelope"></i>
+          <span>Inspection Report</span>
+        </a>
+      </li>
+
+
+    </ul>
+
+  </aside><!-- End Sidebar-->

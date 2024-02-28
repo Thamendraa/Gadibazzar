@@ -34,21 +34,45 @@ db.sequelize = sequelize;
 
 // Define the "user" model using the userModel.js file and associate it with Sequelize
 db.user = require("./userModel.js")(sequelize, DataTypes);
-db.cars = require("./sellCarModel.js")(sequelize, DataTypes)
-db.kyc = require("./kycVerified.js")(sequelize,DataTypes)
+db.cars = require("./sellCarModel.js")(sequelize, DataTypes);
+db.kyc = require("./kycVerified.js")(sequelize,DataTypes);
+db.bridge = require("./imageAccess.js")(sequelize,DataTypes);
+db.inspection_appointment = require("./inspectionRequest.js")(sequelize,DataTypes)
 
+
+
+
+
+
+//admin side
+db.mechanices = require("./mechanics.js")(sequelize,DataTypes);
 
 
 
 //relationship for user and kyc
 db.user.hasOne(db.kyc)
 db.kyc.belongsTo(db.user)
+
 // relationship between user and postCars
-db.kyc.hasMany(db.cars)
-db.cars.belongsTo(db.kyc)
+db.user.hasMany(db.cars)
+db.cars.belongsTo(db.user)
 
 
+db.user.hasMany(db.bridge)
+db.bridge.belongsTo(db.user)
 
+db.cars.hasMany(db.bridge)
+db.bridge.belongsTo(db.cars)
+
+//relationship for request inspection
+    db.cars.hasOne( db.inspection_appointment);
+    db.inspection_appointment.belongsTo(db.cars);
+
+    db.inspection_appointment.belongsTo(db.user, { foreignKey: 'userId', allowNull: true });
+
+// Define the association between User and Mechanic
+db.user.hasOne(db.mechanices);
+db.mechanices.belongsTo(db.user);
 
 
 

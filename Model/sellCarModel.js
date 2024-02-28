@@ -45,13 +45,14 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       carImages: {
-        type: DataTypes.STRING, // Define ARRAY of STRINGs
-        allowNull: false, // Allow null as cars might not have images initially
+        type: DataTypes.STRING, 
+        allowNull: false, 
       },
       carDocsImages: {
-        type: DataTypes.STRING, // Define ARRAY of STRINGs
-        allowNull: false, // Allow null as cars might not have documents initially
-      }
+        type: DataTypes.STRING, 
+        allowNull: false, 
+      },
+    
     });
     return Cars;
   };

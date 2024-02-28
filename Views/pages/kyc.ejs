@@ -7,11 +7,11 @@
 
 
 <body>
-    <%- include('../partials/navbar.ejs') %>
+    <%- include('../partials/navbar.ejs',{isKycVerified:isKycVerified}) %>
 <div class="container-fluid">
     <!-- Centered Form -->
-    <div class="container d-flex justify-content-center" style="min-height: 90vh;">
-        <form class="row g-3" action="/kyc" method="post" enctype="multipart/form-data">
+    <div class="container d-flex justify-content-center mt-4 border" style="min-height: 90vh;">
+        <form class="row g-3 mt-3" action="/kyc" method="post" enctype="multipart/form-data">
         <div class="col-md-4 ">
             <label for="full_name" class="form-label">Full Name</label>
             <input type="text" class="form-control" name="full_name" placeholder="<%=user.name%>">

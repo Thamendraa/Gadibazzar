@@ -1,5 +1,5 @@
 <% if(user==user){ %> 
-   <nav>
+   <nav class="px-5">
       <div class="navbar-left">
          <a href="/">
          <img src="/images/bgGadiBazzar.png" alt="Image">
@@ -9,31 +9,177 @@
          <input type="text" placeholder="Search..">
       </div>
       <div class="navbar-right ">
-         <a><i class="fa-regular fa-bell fa-2x mr-4 mt-1"></i></a>
-         
-        <a href="#">
-         <span class="badge rounded-pill badge-notification bg-danger">1</span>
-         <i class="fa-regular fa-message fa-2x "></i>
-       </a>
+      
+       <li class="nav-item dropdown">
+
+         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+           <i class="fa-regular fa-bell"></i>
+           <span class="badge bg-primary badge-number">4</span>
+         </a><!-- End Notification Icon -->
+
+         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+           <li class="dropdown-header">
+             You have 4 new notifications
+             <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+           </li>
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+
+           <li class="notification-item">
+             <i class="bi bi-exclamation-circle text-warning"></i>
+             <div>
+               <h4>Lorem Ipsum</h4>
+               <p>Quae dolorem earum veritatis oditseno</p>
+               <p>30 min. ago</p>
+             </div>
+           </li>
+
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+
+           <li class="notification-item">
+             <i class="bi bi-x-circle text-danger"></i>
+             <div>
+               <h4>Atque rerum nesciunt</h4>
+               <p>Quae dolorem earum veritatis oditseno</p>
+               <p>1 hr. ago</p>
+             </div>
+           </li>
+
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+
+           <li class="notification-item">
+             <i class="bi bi-check-circle text-success"></i>
+             <div>
+               <h4>Sit rerum fuga</h4>
+               <p>Quae dolorem earum veritatis oditseno</p>
+               <p>2 hrs. ago</p>
+             </div>
+           </li>
+
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+
+           <li class="notification-item">
+             <i class="bi bi-info-circle text-primary"></i>
+             <div>
+               <h4>Dicta reprehenderit</h4>
+               <p>Quae dolorem earum veritatis oditseno</p>
+               <p>4 hrs. ago</p>
+             </div>
+           </li>
+
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+           <li class="dropdown-footer">
+             <a href="#">Show all notifications</a>
+           </li>
+
+         </ul><!-- End Notification Dropdown Items -->
+
+       </li><!-- End Notification Nav -->
+
+       <li class="nav-item dropdown">
+
+         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+           <i class="fa-regular fa-message "></i>
+           <span class="badge bg-success badge-number">3</span>
+         </a><!-- End Messages Icon -->
+
+         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+           <li class="dropdown-header">
+             You have 3 new messages
+             <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+           </li>
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+
+           <li class="message-item">
+             <a href="#">
+               <img src="/img/messages-1.jpg" alt="" class="rounded-circle">
+               <div>
+                 <h4>Maria Hudson</h4>
+                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                 <p>4 hrs. ago</p>
+               </div>
+             </a>
+           </li>
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+
+           <li class="message-item">
+             <a href="#">
+               <img src="/img/messages-2.jpg" alt="" class="rounded-circle">
+               <div>
+                 <h4>Anna Nelson</h4>
+                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                 <p>6 hrs. ago</p>
+               </div>
+             </a>
+           </li>
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+
+           <li class="message-item">
+             <a href="#">
+               <img src="/img/messages-3.jpg" alt="" class="rounded-circle">
+               <div>
+                 <h4>David Muldon</h4>
+                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                 <p>8 hrs. ago</p>
+               </div>
+             </a>
+           </li>
+           <li>
+             <hr class="dropdown-divider">
+           </li>
+
+           <li class="dropdown-footer">
+             <a href="#">Show all messages</a>
+           </li>
+
+         </ul><!-- End Messages Dropdown Items -->
+
+       </li><!-- End Messages Nav -->
          <a href="/sellCar"><button class="sellCar border">Sell Car</button></a>
-         
+         <% if (isKycVerified) { %>
          <div class="dropdown mr-2">
             <button class="dropbtn">
-               <img src="/images/profilejpg.jpg" alt="Profile Picture" class="profile-pic">
-              <%= user.name %>
-             
+               <img src="<%= user.kyc.userImage %>" alt="Profile Picture" class="profile-pic">
+               <%= user.kyc.full_name %>
             </button>
-            <div class="dropdown-content ml-2 ">
-               <a href="/profile">Profile</a>
+            <div class="dropdown-content mr-5">
+               <a href="/profile"><i class="fa-regular fa-user px-2"></i>Profile</a>
                <a href="/logout"><i class=" fa-solid fa-arrow-right-from-bracket px-2"></i>Logout</a>
             </div>
          </div>
+         <% } else { %>
+            <div class="dropdown mr-2">
+               <button class="dropbtn">
+                  <img src="/images/profilejpg.jpg" alt="Profile Picture" class="profile-pic">
+                 <%= user.name %>
+               </button>
+               <div class="dropdown-content mr-5">
+                  <a href="/profile"><i class="fa-regular fa-user px-2"></i>Profile</a>
+                  <a href="/logout"><i class=" fa-solid fa-arrow-right-from-bracket px-2"></i>Logout</a>
+               </div>
+            </div>
+            <% } %>
       </div>
       </nav>
      
       <% } %>
   
-      <% if(!user){ %> 
+      <!-- <% if(!user){ %> 
    <nav>
       <div class="navbar-left">
          <img src="/images/bgGadiBazzar.png" alt="Image">
@@ -47,4 +193,4 @@
          <a href="/login"><button class="SignIn">Sign In</button></a>
       </div>
       </nav>
-      <% } %>
+      <% } %> -->
