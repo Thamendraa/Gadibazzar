@@ -7,10 +7,16 @@ const Appointment = db.inspection_appointment;
 const Cars = db.cars
 const Users = db.user
 const sendEmail = require("../Services/sendEmail");
+const { where } = require("sequelize");
 
 //render DashBoard
 exports.renderMechanicDashboard = async(req,res) =>{
-    res.render("mechanicDashboard",{active:"Dashboard"});
+  const mechanicId = req.user.id;
+  const user = await db.user.findByPk(mechanicId, {
+    include: [{ model: db.mechanices }]
+  });  
+    console.log(user)
+    res.render("mechanicDashboard",{user:user,active:"Dashboard"});
   }
   
 //request for Inspections
@@ -39,15 +45,19 @@ exports.renderMechanicDashboard = async(req,res) =>{
 exports.renderMechanicListOfInspections = async (req, res) => {
   const mechanicId = req.user.id;
 
+  const user = await db.user.findByPk(mechanicId, {
+    include: [{ model: db.mechanices }]
+  }); 
+
   // Retrieve the mechanic's availability city
-  const mechanic = await db.mechanices.findOne({
+  const mechanicCity = await db.mechanices.findOne({
     attributes: ['avaibilityCity'],
     where: {
       userId: mechanicId
     }
   });
 
-  if (!mechanic) {
+  if (!mechanicCity) {
     // Handle the case where mechanic is not found
     return res.status(404).send("Mechanic not found");
   }
@@ -56,7 +66,7 @@ exports.renderMechanicListOfInspections = async (req, res) => {
   const appointments = await db.inspection_appointment.findAll({
     where: {
 
-      current_city: mechanic.avaibilityCity
+      current_city: mechanicCity.avaibilityCity
     },
     include: [
       {
@@ -68,7 +78,7 @@ exports.renderMechanicListOfInspections = async (req, res) => {
 
   console.log(appointments);
 
-  res.render("mechanicListofInspection", { active: "Inspection List", appointments });
+  res.render("mechanicListofInspection", { user:user,active: "Inspection List", appointments });
 };
 
 
@@ -118,7 +128,7 @@ exports.renderMechanicListOfInspections = async (req, res) => {
 exports.accpectInspectionRequest = async (req, res) => {
   const mechanicId = req.user.id;
   const carId = req.params.carId;
-  console.log(carId,mechanicId,'---------------------------------------')
+ 
  
     // Update userId and inspection_request fields
     const [updatedRows] = await Appointment.update(
@@ -163,5 +173,9 @@ exports.accpectInspectionRequest = async (req, res) => {
 /***Inspection report */
 
 exports.rendermechanicInspetionReport = async(req,res) =>{
-  res.render("mechanicInspectionReport",{active:"Inspection Report"});
+  const mechanicId = req.user.id;
+  const user = await db.user.findByPk(mechanicId, {
+    include: [{ model: db.mechanices }]
+  });  
+  res.render("mechanicInspectionReport",{user:user,active:"Inspection Report"});
 }

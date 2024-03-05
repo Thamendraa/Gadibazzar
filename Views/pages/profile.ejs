@@ -1,161 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/headerIndex.ejs') %>
 </head>
+
 <body>
     <!-- Navbar -->
     <%- include('../partials/navbarIndex.ejs') %>
-    <%- include('../partials/sidebarUser.ejs') %>
-   
-    <!-- Main Container -->
-    <div class="container">
-      
-            <main id="main" class="main">
-                <div class="pagetitle">
-                    <h1>Dashboard</h1>
-                    <nav>
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                      </ol>
-                    </nav>
-                  </div><!-- End Page Title -->
-                  
-                  <div class="card border">
-                  
+        <%- include('../partials/sidebarUser.ejs') %>
+            <!-- Main Container -->
+            <div class="container">
+
+                <main id="main" class="main">
+
+                    <div class="card ">
+
                         <div class="col-md-12 mt-3  h-100">
                             <% if (isKycVerified) { %>
-                                            <!-- Personal Details -->
-                                            <div class="d-flex justify-content-end mt-3 px-2">
-                                                <a href="/kyc" class="btn btn-primary">
-                                                    <i class="fas fa-id-card"></i> KYC
-                                                </a>
-                                               </div>
-                       <div class="card-body">
-                        <!-- Profile Information -->
-                        <div class="d-flex justify-content-between mt-3">
-                            <!-- Profile Image -->
-                            <div class="mx-4">
-                                <img src="<%= user.kyc.userImage %>" alt="Profile Image" class="rounded-circle" style="width: 200px; height: 200px;">
-                            </div>
-                            
-                            <!-- Personal Information -->
-                            <div class="mt-3">
-                                <strong><p><span class="font-weight-bold text-primary">Personal Information:</span></p></strong>
-                               <div class="row">
-                                <div class="d-flex ">
-                                    <div >
-                                        <p><span class="text-muted p-1">Username:</span></p>
-                                         <p>   <strong><%= user.kyc.full_name %></strong></p>
-                                    </div>
-                                    <div class="px-5">
-                                        <p><span class="text-muted p-1">Date of Birth:</span></p>
-                                         <p>   <strong> <%= user.kyc.dob %></strong></p>
-                                    </div>
-                                    <div>
-                                        <p><span class="text-muted p-1">Gender:</span></p>
-                                         <p>   <strong><%= user.kyc.gender %></strong></p>
-                                    </div>
-                                   
-                                    </div>
-                               </div>
-                                    <p><strong><span>Additional Information:</span></strong></p>
-                                    <div class="row">
-                                        <!-- Profession -->
-                                        <div class=" d-inline-flex align-items-between">
-                                            <p><span>Profession:</span></p>
-                                            <p><span><%= user.kyc.profession %></span></p>
-                                        </div>
-                                    
-                                        <!-- Phone Number -->
-                                        <div class="d-inline-flex align-items-between">
-                                            <p><span>Phone Number:</span></p>
-                                            <p><%= user.kyc.phone_number %></p>
-                                        </div>
-                                    
-                                        <!-- Marital Status -->
-                                        <div class="d-inline-flex align-items-between">
-                                            <p><span>Marital Status:</span></p>
-                                            <p><span><%= user.kyc.marital_status %></span></p>
-                                        </div>
-                                    </div>
-                                    
-                               </div>
-                            </div>
-                        </div>
-                        <!-- Address Information -->
-                        <div class="mx-5 mt-3">
-                            <p><span><strong>Address Information:</strong></span></p>
-                            <div class="d-flex">
-                                <!-- Current Address -->
-                                <div class="mr-5">
-                                    <p><span>Current Address:</span></p>
-                                    <p><span><%= user.kyc.current_address %></span></p>
-                                </div>
-                                <!-- Permanent Address -->
-                                <div>
-                                    <p><span>Permanent Address:</span></p>
-                                    <p><span><%= user.kyc.permanent_address %></span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Documents Images -->
-                        <div class="mx-5 mt-3 mb-3">
-                            <p><span><strong>Documents Information:</strong></span></p>
-                            <div class="d-flex">
-                                <div class="mr-5">
-                                    <p>Citizenship Front:</p>
-                                    <img src="<%= user.kyc.userDocs %>" alt="Citizenship Front" style="width: 150px; height: 150px;">
-                                </div>
-                                <div>
-                                    <p>Citizenship Back:</p>
-                                    <img src="<%= user.kyc.userDocs %>" alt="Citizenship Back" style="width: 150px; height: 150px;">
-                                </div>
-                            </div>
-                        </div>
-                            <% } else { %>
-                                   <!-- Personal Details for Unverified KYC -->
-                        <div class="card mt-3">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <div>
-                                        <h4 class="font-weight-bold">Personal Details</h4>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-start mt-3">
-                                    <!-- Profile Image -->
-                                    <div>
-                                        <img src="/images/profilejpg.jpg" alt="Profile Image" class="rounded-circle" style="width: 200px; height: 200px;">
-                                    </div>
-                                    <!-- Personal Information -->
-                                    <div class="mt-3">
-                                        <p><span class="font-weight-bold">Personal Information:</span></p>
-                                        <div class="pl-3">
-                                            <p><span class="bg-light p-1">Username:</span><strong><%= user.name %></strong></p>
-                                            <p><span class="bg-light p-1">Gender: <%= user.gender %></span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- KYC Button -->
-                                <div class="mt-3">
+                                <!-- Personal Details -->
+                                <div class="d-flex justify-content-end mt-3 px-2">
                                     <a href="/kyc" class="btn btn-primary">
-                                        <i class="fas fa-id-card"></i> Fill the KYC
+                                        <i class="bi bi-pencil-square"></i> Update KYC
                                     </a>
                                 </div>
-                            </div>
-                        </div>
-                            <% } %>
-                        </div>
-</div>
+                                <div class="card-body">
+                                    <!-- Profile Information -->
 
-                </div>
-             
-              </main><!-- End #main -->
+                                    <!-- Profile Image -->
+                                    <!-- <div class="mx-4">
+                                        <img src="<%= user.kyc.userImage %>" alt="Profile Image" class="rounded-circle"
+                                            style="width: 200px; height: 200px;">
+                                    </div> -->
+
+                                    <!-- Personal Information -->
+
+                                    <strong>
+                                        <p><span class="font-weight-bold text-primary">Personal
+                                                Information:</span></p>
+                                    </strong>
+                                    <div class="row">
+                                        <div class="d-flex justify-content-between ">
+                                            <div>
+                                                <p><span class="text-muted p-1">Username:</span>
+                                                </p>
+                                                <p> <strong>
+                                                        <%= user.kyc.full_name %>
+                                                    </strong></p>
+                                            </div>
+                                            <div class="px-3">
+                                                <p><span class="text-muted p-1">Date
+                                                        of Birth:</span></p>
+                                                <p> <strong>
+                                                        <%= user.kyc.dob %>
+                                                    </strong></p>
+                                            </div>
+                                            <div>
+                                                <p><span class="text-muted p-1">Gender:</span>
+                                                </p>
+                                                <p> <strong>
+                                                        <%= user.kyc.gender %>
+                                                    </strong></p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <strong>
+                                        <p><span class="font-weight-bold text-primary">Additional
+                                                Information:</span></p>
+                                    </strong>
+                                    <div class="row">
+                                        <div class="d-flex justify-content-between">
+                                            <!-- Profession -->
+                                            <div class="  ">
+                                                <p><span>Profession:</span></p>
+                                                <p><span>
+                                                        <%= user.kyc.profession %>
+                                                    </span></p>
+                                            </div>
+
+                                            <!-- Phone Number -->
+                                            <div class="">
+                                                <p><span>Phone Number:</span></p>
+                                                <p>
+                                                    <%= user.kyc.phone_number %>
+                                                </p>
+                                            </div>
+
+                                            <!-- Marital Status -->
+                                            <div>
+                                                <p><span>Marital Status:</span></p>
+                                                <p><span>
+                                                        <%= user.kyc.marital_status %>
+                                                    </span></p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Address Information -->
+                                    <strong>
+                                        <p><span class="font-weight-bold text-primary">Address
+                                                Information:</span></p>
+                                    </strong>
+                                    <div class="d-flex justify-content-between ">
+
+                                        <div class="">
+                                            <p><span>Current Address:</span></p>
+                                            <p><span>
+                                                    <%= user.kyc.current_address %>
+                                                </span></p>
+                                        </div>
+                                        <!-- Permanent Address -->
+                                        <div>
+                                            <p><span>Permanent Address:</span></p>
+                                            <p><span>
+                                                    <%= user.kyc.permanent_address %>
+                                                </span></p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row mt-3 mb-3">
+                                        <strong>
+                                            <p><span class="font-weight-bold text-primary">Documents
+                                                    Information:</span></p>
+                                        </strong>
+                                        <div class="d-flex justify-content-between">
+                                            
+                                            <div class="  ">
+                                                <p><span>Document Type:</span></p>
+                                                <p><span>
+                                                        <%= user.kyc.identity_type %>
+                                                    </span></p>
+                                            </div>
+
+                                            <!-- Phone Number -->
+                                            <div class="">
+                                                <p><span>Citizenship Number:</span></p>
+                                                <p>
+                                                    <%= user.kyc.citizenShip_number %>
+                                                </p>
+                                            </div>
+
+                                            <!-- Marital Status -->
+                                            <div>
+                                                <p><span>Citizenship Issued date:</span></p>
+                                                <p><span>
+                                                        <%= user.kyc.issued_date %>
+                                                    </span></p>
+                                            </div>
+                                            <div>
+                                                <p><span>Citizenship Issued District:</span></p>
+                                                <p><span>
+                                                        <%= user.kyc.issued_district %>
+                                                    </span></p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <strong>
+                                        <p><span class="font-weight-bold text-primary">Documents
+                                                Information:</span></p>
+                                    </strong>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <p>User Image:</p>
+                                            <img src="<%= user.kyc.userImage %>" alt="User Image"
+                                                style="width: 150px; height: 150px;">
+                                        </div>
+                                        <div>
+                                            <p>Citizenship Fornt:</p>
+                                            <img src="<%= user.kyc.userDocs %>" alt="Citizenship Back"
+                                                style="width: 150px; height: 150px;">
+                                        </div>
+                                        <div>
+                                            <p>Citizenship Back:</p>
+                                            <img src="<%= user.kyc.userDocs %>" alt="Citizenship Back"
+                                                style="width: 150px; height: 150px;">
+                                        </div>
+                                    </div>
+
+            
+                                       
+                                  
+
+
+                                </div>
+                                <!-- Documents Images -->
+                                <% } else { %>
+                                    <!-- Personal Details for Unverified KYC -->
+                                    <div class="card mt-3">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <h4 class="font-weight-bold">Personal
+                                                        Details</h4>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-start mt-3">
+                                                <!-- Profile Image -->
+                                                <div>
+                                                    <img src="/images/profilejpg.jpg" alt="Profile Image"
+                                                        class="rounded-circle" style="width: 200px; height: 200px;">
+                                                </div>
+                                                <!-- Personal Information -->
+                                                <div class="mt-3">
+                                                    <p><span class="font-weight-bold">Personal
+                                                            Information:</span></p>
+                                                    <div class="pl-3">
+                                                        <p><span class="bg-light p-1">Username:</span><strong>
+                                                                <%= user.name %>
+                                                            </strong></p>
+                                                        <p><span class="bg-light p-1">Gender:
+                                                                <%= user.gender %>
+                                                            </span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- KYC Button -->
+                                            <div class="mt-3">
+                                                <a href="/kyc" class="btn btn-primary">
+                                                    <i class="fas fa-id-card"></i> Fill the KYC
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <% } %>
+                        </div>
+                    </div>
+
+            </div>
+
+            </main><!-- End #main -->
             <!-- Content -->
-       
-    </div>
-    <!-- Scripts -->
-    <%- include('../partials/scripts.ejs') %>
+
+            </div>
+            <!-- Scripts -->
+            <%- include('../partials/scripts.ejs') %>
 </body>
+
 </html>

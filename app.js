@@ -2,6 +2,8 @@ const express = require("express");
 const userRoutes = require('./Routes/userRoutes');
 const mechanicRoutes = require('./Routes/mechanicRoutes');
 const adminRoutes = require('./Routes/adminRoutes');
+const chatRoutes = require('./Routes/chatRoutes');
+
 const app = express();
 const port = 4001;
 const db = require("./Model/index");
@@ -51,6 +53,8 @@ app.use(mechanicRoutes);
 //adminRoutes
 app.use(adminRoutes);
 
+//chatRoutes
+app.use(chatRoutes);
 
 
 

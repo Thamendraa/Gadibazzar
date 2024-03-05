@@ -9,12 +9,14 @@
 
 <body>
     <%- include('../partials/navbarIndex.ejs') %>
-    <div class="container-fluid">
-
         <!-- Centered Form -->
-        <div class="container d-flex align-items-center justify-content-center border shadow mt-3"
-            style="min-height: 90vh;">
-            <form class="row g-4" action="/sellCar" method="post"
+        <div class="container mb-5" style="margin-top: 90px; padding-top: 5px;">
+            <div class="d-flex justify-content-end ">
+                <a href="/" class="btn btn-dark">
+                    <i class="bi bi-arrow-left-circle"></i> Back
+                </a>
+               </div>
+            <form class="row g-4 mt-3 py-2 border " action="/sellCar" method="post"
                 enctype="multipart/form-data">
                 <div class="col-md-3 mb-3">
                     <label for="registration_state"
@@ -129,9 +131,9 @@
                     <label for="carImage" class="form-label">Car Images</label>
                     <input type="file" name="carImages" class="form-control"
                         id="carImage" multiple onchange="displaySelectedFiles('carImage', 'carImagePreview')">
+                        <div id="carImagePreview" class="mt-2 d-flex"></div>
                     <small class="text-muted">You can upload multiple images.
                         Accepted formats: JPG, JPEG, PNG.</small>
-                    <div id="carImagePreview" class="mt-2"></div>
                 </div>
                 
                 <div class="col-md-5 mb-3">
@@ -139,27 +141,18 @@
                         Images</label>
                     <input type="file" name="carDocsImages" class="form-control"
                         id="carDocsImage" multiple onchange="displaySelectedFiles('carDocsImage', 'carDocsImagePreview')">
+                        <div id="carDocsImagePreview" class="mt-2 d-flex"></div>
                     <small class="text-muted">You can upload multiple images.
                         Accepted formats: JPG, JPEG, PNG.</small>
-                    <div id="carDocsImagePreview" class="mt-2"></div>
                 </div>
-                <div class="col-12 mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox"
-                            id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Check me out
-                        </label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <button type="submit"
-                        class="btn btn-primary">Submit</button>
+             
+                <div class=" align-items-center d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle "></i> Post car</button>
                 </div>
             </form>
 
         </div>
-    </div>
+ 
     <%- include('../partials/scripts.ejs') %>
     <script>
         function displaySelectedFiles(inputId, previewId) {
@@ -175,8 +168,9 @@
                 reader.onload = function (e) {
                     const img = document.createElement('img');
                     img.src = e.target.result;
-                    img.style.maxWidth = '100px'; // Set max width for preview
-                    img.style.marginRight = '5px'; // Add margin between images
+                    img.style.maxWidth = '100px';
+                img.style.marginRight = '5px';
+                img.style.marginBottom = '5px';
                     preview.appendChild(img);
                 }
 

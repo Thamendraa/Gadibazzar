@@ -10,8 +10,8 @@ const jwt = require("jsonwebtoken");
 //render singUpUser from Pages 
 exports.renderRegistration = async (req, res) => {
   const title = 'Sing Up Gadibazzar'
-  const validationErrors = req.session.validationErrors;
-  const formData = req.session.formData;
+  const validationErrors = req.session.validationErrors || [];
+  const formData = req.session.formData || {};
 
   delete req.session.validationErrors
   delete req.session.formData
@@ -27,9 +27,10 @@ exports.renderRegistration = async (req, res) => {
 exports.renderLogin = async (req, res) => {
 
   const title = 'Log In Gadibazzar'
-  const validationErrors = req.session.validationErrors;
-  const formData = req.session.formData;
+  const validationErrors = req.session.validationErrors|| [];
+  const formData = req.session.formData || {};
   const message = req.flash()
+  console.log(formData)
 
   delete req.session.validationErrors
   delete req.session.formData
@@ -177,7 +178,7 @@ exports.userLogin = async (req, res) => {
 
       // Check user role and redirect accordingly
       if (userSearch.role === 'admin') {
-        return res.redirect("/index ");
+        return res.redirect("/index");
       } else if (userSearch.role === 'mechanic') {
         return res.redirect("/mechanicDashboard");
       } else {
@@ -303,18 +304,33 @@ exports.makeLogout = (req, res) => {
 exports.renderKYC = async (req, res) => {
  
   const userId = req.user.id;
+  const validationErrors = req.session.validationErrors;
+  const formData = req.session.formData;
+
+  delete req.session.validationErrors
+  delete req.session.formData
   const user = await db.user.findByPk(userId, {
     include: [{ model: db.kyc }]
   });
   // Check if KYC details exist and if KYC is verified
   const isKycVerified = user.kyc && user.kyc.verified;
   res.render("kyc",
-    { css: "home.css", user: user,isKycVerified:isKycVerified }
+    { css: "home.css", user: user,isKycVerified:isKycVerified,validationErrors: validationErrors,
+    formData: formData }
   );
 };
 
 //Post KYC
 exports.kycRegister = async (req, res) => {
+  const error=validationResult(req)
+
+  if (!error.isEmpty()) {
+    req.session.validationErrors = error.mapped()
+    console.log(error.mapped())
+    req.session.formData = req.body
+    res.redirect('/kyc')
+  }
+  else {
   console.log(req.file);
   const {
     full_name,
@@ -351,8 +367,20 @@ exports.kycRegister = async (req, res) => {
   };
 
 
+  }
+};
 
+/***************Update KYC************ */
 
+exports.rendrUpdateKYC = async (req, res) => {
+  const userId = req.user.id;
 
-}
+  const kycData = await KYC.findOne({
+    where: {
+      userId: userId
+    },
+  });
+  res.render("editBlog", { kyc: kycData });
+};
+
 

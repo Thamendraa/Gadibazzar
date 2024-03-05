@@ -459,15 +459,19 @@ h6 {
 
 .header-nav .nav-icon {
   font-size: 22px;
-  color: #FFA500;
+  color: #2d2c2c;
   margin-right: 25px;
   position: relative;
 }
 .header-nav button{
   background-color: #FFA500;
+
 }
-.header-nav button .btn:hover{
-  background-color: #ff0000;
+.header-nav button.btn:hover{
+  background-color: #000000;
+  color: white;
+ 
+  
 }
 
 .header-nav .nav-profile {

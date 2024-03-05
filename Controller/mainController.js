@@ -196,47 +196,48 @@ exports.renderMyCarsList = async (req, res) => {
 
 //********************************************RequestDocs********************************** */
 //renderRequested user for seller
-// exports.renderUserRequestDocs = async (req, res) => {
-//   const userId = req.user.id;
-//   const user = await db.user.findByPk(userId, {
-//     include: [{ model: db.kyc }]
-//   });
-//   // Check if KYC details exist and if KYC is verified
-//   const isKycVerified = user.kyc && user.kyc.verified;
+exports.renderUserRequestDocs = async (req, res) => {
+  const userId = req.user.id;
+  const user = await db.user.findByPk(userId, {
+    include: [{ model: db.kyc }]
+  });
+  // Check if KYC details exist and if KYC is verified
+  const isKycVerified = user.kyc && user.kyc.verified;
 
    
-//   try {
-//     // Check if there's a Car associated with the user's session userId
-//     const car = await Cars.findOne({ where: { userId: userId } });
+  try {
+    // Check if there's a Car associated with the user's session userId
+    const car = await Cars.findOne({ where: { userId: userId } });
 
-//     if (car) {
-//       // If there's a car, find all corresponding Bridge entries
-//       const bridges = await Bridge.findAll({ where: { carId: car.id } });
+    if (car) {
+      // If there's a car, find all corresponding Bridge entries
+      const bridges = await Bridge.findAll({ where: { carId: car.id } });
 
-//       if (bridges && bridges.length > 0) {
-//         // Extract user IDs from bridges
-//         const userIds = bridges.map(bridge => bridge.userId);
+      if (bridges && bridges.length > 0) {
+        // Extract user IDs from bridges
+        const userIds = bridges.map(bridge => bridge.userId);
 
-//         // Find all KYC details for users associated with the extracted user IDs
-//         const requestedUsers = await KYC.findAll({ where: { userId: userIds } });
+        // Find all KYC details for users associated with the extracted user IDs
+        const requestedUsers = await KYC.findAll({ where: { userId: userIds } });
         
-//         console.log(requestedUsers); 
-//         // Render the template with requestedUsers if there are any, otherwise, render without the table
-//         res.render("userRequestDocs", { user: user, requestedUsers: requestedUsers,isKycVerified:isKycVerified,active:"Request for Document"});
-//       } else {
-//         console.log("No bridges found for carId:", car.id);
-//         res.status(404).send("No bridges found for car");
-//       }
-//     } else {
-//       console.log("Car not found for userId:", userId);
+        console.log(requestedUsers); 
+        // Render the template with requestedUsers if there are any, otherwise, render without the table
+        res.render("userRequestDocs", { user: user,car:car,bridges:bridges, requestedUsers: requestedUsers,isKycVerified:isKycVerified,active:"Request for Document"});
+      } else {
+        console.log("No bridges found for carId:", car.id);
+        res.render("userRequestDocs", { user: user,car:car,bridges:bridges,isKycVerified:isKycVerified,active:"Request for Document"});
+      }
+    } else {
+      console.log("Car not found for userId:", userId);
       
-//       res.status(404).send("Car not found for user");
-//     }
-//   } catch (error) {
-//     console.error('Error fetching data:', error);
-//     res.status(500).send('Error fetching data');
-//   }
-// };
+      res.render("userRequestDocs", { user: user,car:car,isKycVerified:isKycVerified,active:"Request for Document"});
+
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).send('Error fetching data');
+  }
+};
 
 
 

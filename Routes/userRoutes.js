@@ -10,6 +10,7 @@ const isAuthenticated = require("../Middleware/isAuthenticated");
 const validateLloginUser = require("../Middleware/Validator/loginValidator")
 const validateSingUpUser = require("../Middleware/Validator/singUpValidator")
 const validateSellCar = require("../Middleware/Validator/sellCarValidator")
+const validateKYC = require ("../Middleware/Validator/kycValidator")
 
 // creating for add car image and car docs
 const { upload } = require("../Services/multerConfig");
@@ -50,7 +51,7 @@ router.route("/profile").get(isAuthenticated.isAuthenticated,hc.renderProfile)
 
 //KYC
 router.route("/kyc").get(isAuthenticated.isAuthenticated,uc.renderKYC)
-.post(kycUpload,isAuthenticated.isAuthenticated, uc.kycRegister)
+.post(kycUpload,validateKYC,isAuthenticated.isAuthenticated, uc.kycRegister)
 
 //myCarList
 router.route("/myCarlist/:id").get(isAuthenticated.isAuthenticated,hc.renderMyCarsList)
